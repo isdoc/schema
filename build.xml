@@ -4,7 +4,7 @@
   <property name="VERSION" value="6.0.2"/>
   <property name="BETA" value="beta"/>
   <property name="show.comments">1</property>
-  <property name="draft.mode">no</property>
+  <property name="draft.mode">yes</property>
   <property name="doctype">invoice</property>
   
   <property name="libs" value="lib"/>
