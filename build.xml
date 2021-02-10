@@ -424,4 +424,9 @@
     </zip>    
   </target>
   
+  <target name="ghpages" depends="dist">
+    <unzip src="isdoc-schema-${VERSION}${BETA}-${DSTAMP}.zip" dest="../isdoc.github.io"/>
+    <copy file="docs/readme-cs.html" tofile="../isdoc.github.io/index.html"/>
+  </target>
+  
 </project>
