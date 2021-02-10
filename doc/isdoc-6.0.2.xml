@@ -15,7 +15,7 @@
       <holder>ICT UNIE o.s.</holder>
     </copyright>
     <pubdate><?dbtimestamp padding="0"?></pubdate>
-    <releaseinfo revision="6.1">Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit a být nahrazen novější verzí.
+    <releaseinfo revision="6.0.2">Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit a být nahrazen novější verzí.
       Informace o aktuální verzi standardu ISDOC naleznete na adrese <link xlink:href="http://isdoc.cz"/>.</releaseinfo>
   </info>
   <section xml:id="uvod">
@@ -24,7 +24,7 @@
       ISDOC. Formát byl definován a je nadále rozvíjen pracovní skupinou pro elektronické standardy
       výměny dat <link xlink:href="http://www.ictu.cz/">ICT Unie o.s.</link>. Veškeré připomínky a
       dotazy k formátu a jeho specifikaci zasílejte na adresu <email>info@isdoc.cz</email>.</para>
-    <para>V současné verzi ISDOC definuje formát pro fakturu<phrase revision="6.0.2"> a </phrase><phrase revision="6.1">, </phrase>neplatební dokument<phrase revision="6.1"> a objednávku</phrase>, v dalších verzích může
+    <para>V současné verzi ISDOC definuje formát pro fakturu a neplatební dokument, v dalších verzích může
       být přidána podpora pro další formáty.</para>
     <section xml:id="konvence">
       <title>Konvence</title>
@@ -77,12 +77,6 @@
             přijetí platby (daňový zálohový list), opravný daňový doklad při přijetí platby
             (dobropis daňového zálohového listu)a zjednodušený daňový doklad;</para>          
         </listitem>
-        <listitem revision="6.1">
-          <para>objednávka;</para>
-        </listitem>
-        <listitem revision="6.1">
-          <para>potvrzení objednávky;</para>
-        </listitem>
         <listitem>
           <para>neplatební dokument.</para>
         </listitem>        
@@ -103,16 +97,6 @@
               <para>Pokud se jedná o daňový doklad, musí být validní vůči schématu uvedenému v části
                   <xref linkend="schema-invoice"/> a jako kořenový element musí být použit element
                   <tag>Invoice</tag>.</para>
-            </listitem>
-            <listitem revision="6.1">
-              <para>Pokud se jedná o objednávku, musí být validní vůči schématu uvedenému v části
-                  <xref linkend="schema-order"/> a jako kořenový element musí být použit element
-                  <tag>Order</tag>.</para>
-            </listitem>
-            <listitem revision="6.1">
-              <para>Pokud se jedná o potvrzení objednávky, musí být validní vůči schématu uvedenému v části
-                <xref linkend="schema-order-response"/> a jako kořenový element musí být použit element
-                <tag>OrderResponse</tag>. </para>
             </listitem>
             <listitem>
               <para>Pokud se jedná o neplatební dokument, musí být validní vůči schématu uvedenému v části
@@ -456,8 +440,7 @@
               xlink:href="http://www.w3.org/TR/xmldsig-core/#sec-EnvelopedSignature">Enveloped
               Signature</link> a být uložen v elementu <tag>Signature</tag> ze jmenného prostoru
               <uri>http://www.w3.org/2000/09/xmldsig#</uri>, který je vždy posledním elementem
-            uvnitř kořenového elementu dokument ISDOC<phrase revision="6.1"> (např. <tag>Invoice</tag> nebo
-              <tag>Order</tag>)</phrase>.</para>
+            uvnitř kořenového elementu dokument ISDOC (např. <tag>Invoice</tag>).</para>
         </listitem>
         <listitem>
           <para>Je doporučeno, aby kromě transformace <link
@@ -1133,24 +1116,6 @@
         <para>Přehledný grafický diagram schématu je dostupný na adrese <link xlink:href="http://isdoc.cz/6.0.2/doc-cs/isdoc-invoice-6.0.2.html"/>.</para>
       </note>
       <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-invoice-6.0.2.xsd" encoding="utf-8"></textdata></textobject></programlisting>
-    </section>
-    <section xml:id="schema-order" revision="6.1">
-      <title>Schéma pro objednávku – <filename condition="html" xlink:href="../xsd/isdoc-order-6.0.2.xsd">isdoc-order-6.0.2.xsd</filename><filename condition="print">isdoc-order-6.0.2.xsd</filename></title>
-      <note>
-        <para>Přehledný grafický diagram schématu je dostupný na adrese <link xlink:href="http://isdoc.cz/6.0.2/doc-cs/isdoc-order-6.0.2.html"/>.</para>
-      </note>
-      <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-order-6.0.2.xsd" encoding="utf-8"></textdata></textobject></programlisting>
-    </section>
-    <section xml:id="schema-order-response" revision="6.1">
-      <title>Schéma pro potvrzení objednávky</title>
-      <remark>Bude doplněno až se finalizuje samotná podoba objednávky</remark>
-      <!--
-      <title>Schéma pro objednávku – <filename condition="html" xlink:href="../xsd/isdoc-order-6.0.2.xsd">isdoc-order-6.0.2.xsd</filename><filename condition="print">isdoc-order-6.0.2.xsd</filename></title>
-      <note>
-        <para>Přehledný grafický diagram schématu je dostupný na adrese <link xlink:href="../doc-cs/isdoc-order-6.0.2.html">http://isdoc.cz/6.0.2/doc-cs/isdoc-order-6.0.2.html</link>.</para>
-      </note>
-      <programlisting condition="print"><textobject><textdata fileref="../xsd/isdoc-order-6.0.2.xsd" encoding="utf-8"></textdata></textobject></programlisting>
-      -->
     </section>
     <section xml:id="schema-commondocument">
       <title>Schéma pro neplatební dokument – <filename condition="html" xlink:href="../xsd/isdoc-commondocument-6.0.2.xsd">isdoc-commondocument-6.0.2.xsd</filename><filename condition="print">isdoc-commondocument-6.0.2.xsd</filename></title>
