@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+  Schéma pro neplatební dokument ISDOC
+  Schema for ISDOC nonpayment document
+  
+  (c) 2014 ICT UNIE o.s., http://www.ictu.cz/
+  (c) 2014 ICT UNIE o.s. - ASSOCIATION FOR INFORMATION TECHNOLOGIES AND TELECOMMUNICATIONS, http://www.ictu.cz/ 
+  
+  Permission to use, copy, modify and distribute this schema and its
+  documentation for any purpose and without fee is hereby granted in
+  perpetuity, provided that the above copyright notice and this paragraph
+  appear in all copies. The copyright holders make no representation about the
+  suitability of the schema for any purpose. It is provided "as is" without
+  expressed or implied warranty.
+  
+  Neither the name of the SPIS, ICT UNIE, nor the name ISDOC may be used to 
+  endorse or promote products derived from this software without specific 
+  prior written permission.
+
+  $Id: isdoc-commondocument-6.0.2.xsd,v 1.1 2014/09/23 08:17:16 jkj Exp $
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://isdoc.cz/namespace/2013"
+           xmlns="http://isdoc.cz/namespace/2013"
+           xmlns:isdoc="http://isdoc.cz/namespace/2013"
+           elementFormDefault="qualified"
+           version="6.0.2"
+           xml:lang="cs">
+  
+  <xs:include schemaLocation="isdoc-core-6.0.2.xsd"/>
+  
+  <xs:element name="CommonDocument">
+    <xs:annotation>
+      <xs:documentation xml:lang="cs">Hlavní element dokumentu, jeho subtyp viz položka DocumentType</xs:documentation>
+      <xs:documentation xml:lang="en">Document root element, subtype is stored in DocumentType element</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SubDocumentType" type="SubDocumentTypeType"/>
+        <xs:element name="SubDocumentTypeOrigin" type="SubDocumentTypeOriginType"/>
+        <xs:element name="TargetConsolidator" type="TargetConsolidatorType" minOccurs="0"/>
+        <xs:element name="ClientOnTargetConsolidator" type="ClientOnTargetConsolidatorType" minOccurs="0"/>
+        <xs:element name="ClientBankAccount" type="ClientBankAccountType" minOccurs="0"/>
+        <xs:element name="ID" type="IDType">
+          <xs:annotation>
+            <xs:documentation xml:lang="cs">Lidsky čitelné číslo dokladu</xs:documentation>
+            <xs:documentation xml:lang="en">Human readable document number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="UUID" type="UUIDType">
+          <xs:annotation>
+            <xs:documentation xml:lang="cs">GUID identifikace od emitujícího systému</xs:documentation>
+            <xs:documentation xml:lang="en">GUID identifier produced by emitting system</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="IssueDate" type="IssueDateType"/>
+        <xs:element name="LastValidDate" type="LastValidDateType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="cs">Datum konce platnosti dokumentu</xs:documentation>
+            <xs:documentation xml:lang="en">Date until document is valid</xs:documentation>
+          </xs:annotation>          
+        </xs:element>
+        <xs:element name="Note" type="NoteType" minOccurs="0"/>
+        <xs:element name="Extensions" type="ExtensionsType" minOccurs="0"/>
+        <xs:element name="AccountingSupplierParty" type="AccountingSupplierPartyType"/>
+        <xs:element name="AccountingCustomerParty" type="AccountingCustomerPartyType"/>
+        <xs:element name="SupplementsList" type="SupplementsListType" minOccurs="0"/>
+        <xs:group ref="Signature" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="VersionType"/>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

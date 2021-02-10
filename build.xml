@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<project name="isdoc-schema" default="dist">
+
+  <property name="VERSION" value="6.0.2"/>
+  <property name="BETA" value="beta"/>
+  <property name="show.comments">1</property>
+  <property name="draft.mode">no</property>
+  <property name="doctype">invoice</property>
+  
+  <property name="libs" value="lib"/>
+  
+  <property name="jing.jar" value="${libs}/jing.jar"/>
+  <property name="saxon.jar" value="${libs}/saxon.jar"/>
+  <property name="saxon9.jar" value="${libs}/saxon9he.jar"/>
+  <property name="xslthl.jar" value="${libs}/xslthl-2.0.1.jar"/>
+  <property name="xml-apis.jar" value="${libs}/xml-apis.jar"/>
+  <property name="xerces.jar" value="${libs}/xercesImpl.jar"/>
+  <property name="saxon.extensions.jar" value="${libs}/saxon65.jar"/>
+
+  <property name="db.xsl.dir" value="c:\docbook\docbook-xsl-ns-1.78.1\"/>
+  
+  <property name="xslthl.config" value="${db.xsl.dir}highlighting/xslthl-config.xml"/>
+  <makeurl file="${xslthl.config}" property="xslthl.config.url"/>
+  
+  <path id="xep-cp">
+    <fileset dir="c:/program files/renderx/xep/lib">
+      <include name="xep.jar"/>
+      <include name="xt.jar"/>
+    </fileset>
+  </path>
+  
+  <target name="doctypes">
+    <deltree dir="doc-en"/>
+    <deltree dir="doc-cs"/>
+    <antcall target="gendoctype">
+      <param name="doctype" value="invoice"/>
+    </antcall>
+    <!--
+    <antcall target="gendoctype">
+      <param name="doctype" value="order"/>
+    </antcall>
+    -->
+    <antcall target="gendoctype">
+      <param name="doctype" value="commondocument"/>
+    </antcall>    
+  </target>
+
+  <target name="gendoctype">
+    <antcall target="augment">
+      <param name="doctype" value="${doctype}"/>
+    </antcall>
+    <antcall target="doc">
+      <param name="doctype" value="${doctype}"/>
+    </antcall>    
+  </target>
+
+  <target name="augment">
+    <copy file="isdoc-${doctype}-dsig.xsd"
+      tofile="isdoc-${doctype}-dsig-${VERSION}.xsd"
+      overwrite="true"
+      encoding="utf-8">
+      <filterchain>
+        <replacetokens>
+          <token key="VERSION" value="${VERSION}"/>
+        </replacetokens>
+      </filterchain>
+    </copy>        
+    <copy file="isdoc-${doctype}-dsig-${VERSION}.xsd" todir="xsd"/>
+    <xslt in="isdoc-${doctype}-${VERSION}.xsd"
+      out="temp/isdoc-${doctype}-${VERSION}.xsd"
+      style="include.xsl"
+      force="yes">
+      <classpath location="${saxon9.jar}"/>
+    </xslt>
+    <xslt in="temp/isdoc-${doctype}-${VERSION}.xsd"
+      out="xsd/isdoc-${doctype}-${VERSION}.xsd"
+          style="augment.xsl"
+      force="yes">
+      <classpath location="${saxon9.jar}"/>
+    </xslt>
+    <xslt in="xsd/isdoc-${doctype}-${VERSION}.xsd"
+      out="temp/cs/isdoc-${doctype}-${VERSION}.xsd"
+      style="strip-doc.xsl"
+      force="yes">
+      <classpath location="${saxon9.jar}"/>
+      <param name="lang" expression="en"/>
+    </xslt>
+    <xslt in="xsd/isdoc-${doctype}-${VERSION}.xsd"
+      out="temp/en/isdoc-${doctype}-${VERSION}.xsd"
+      style="strip-doc.xsl"
+      force="yes">
+      <classpath location="${saxon9.jar}"/>
+      <param name="lang" expression="cs"/>
+    </xslt>
+    
+    <xslt in="xmldsig-core-schema.xsd"
+      out="xsd/xmldsig-core-schema.xsd"
+      style="copy.xsl">
+    </xslt>
+    
+    <copy file="isdoc-manifest-${VERSION}.xsd"
+      tofile="xsd/isdoc-manifest-${VERSION}.xsd" force="true"/>
+    
+  </target>
+  
+  <target name="schematron">
+    <xslt in="doc/isdoc.xml"
+      out="sch/isdoc-${VERSION}.sch"
+      style="doc2sch.xsl">
+      <classpath location="${saxon9.jar}"/>
+    </xslt>
+    
+    <!--
+    <xslt in="isdoc-invoice-${VERSION}.xsd"
+      out="sch/isdoc-invoice-${VERSION}.sch"
+      style="wxs2sch.xsl">
+      <classpath location="${saxon9.jar}"/>
+    </xslt>
+    <xslt in="sch/isdoc-invoice-${VERSION}.sch"
+      out="sch/isdoc-invoice-${VERSION}-check-schematron-svrl.xsl"
+      style="iso_svrl_for_xslt1.xsl">
+      <classpath location="${saxon9.jar}"/>
+    </xslt>
+    <xslt in="sch/isdoc-invoice-${VERSION}.sch"
+      out="sch/isdoc-invoice-${VERSION}-check-schematron.xsl"
+      style="iso_schematron_skeleton_for_xslt1.xsl">
+    </xslt>
+    -->
+  </target>
+  
+  <target name="doc" depends="augment">
+    
+    <exec executable="C:\Program Files\Oxygen XML Editor 15\schemaDocumentation.bat">
+      <arg value="temp/en/isdoc-${doctype}-${VERSION}.xsd"/>
+      <arg value="-cfg:schemadoc-en.xml"/>
+    </exec>
+    
+    <exec executable="C:\Program Files\Oxygen XML Editor 15\schemaDocumentation.bat">
+      <arg value="temp/cs/isdoc-${doctype}-${VERSION}.xsd"/>
+      <arg value="-cfg:schemadoc-cs.xml"/>
+    </exec>
+  </target>
+
+  <target name="spec" depends="doctypes, schematron">
+    <!-- Expand version -->
+    <copy file="doc/isdoc.xml"
+      tofile="doc/isdoc-${VERSION}.xml"
+      overwrite="true"
+      encoding="utf-8">
+      <filterchain>
+        <replacetokens>
+          <token key="VERSION" value="${VERSION}"/>
+        </replacetokens>
+      </filterchain>
+    </copy>
+    
+    <!-- HTML -->
+    <xslt in="doc/isdoc-${VERSION}.xml" out="doc/isdoc.html" style="doc/html.xsl" force="true">
+      <factory name="com.icl.saxon.TransformerFactoryImpl"/>
+      <sysproperty key="org.apache.xerces.xni.parser.XMLParserConfiguration"
+        value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>      
+      <classpath>
+        <pathelement location="${saxon.jar}"/>        
+        <pathelement location="${saxon.extensions.jar}"/>
+        <pathelement location="${xslthl.jar}"/>        
+        <!--<pathelement location="${xml-apis.jar}"/>
+        <pathelement location="${xerces.jar}"/>-->        
+      </classpath>
+      <xmlcatalog>
+        <catalogpath location="${db.xsl.dir}/catalog.xml"/>
+      </xmlcatalog>
+      <param name="profile.condition" expression="html"/>
+      <param name="profile.revision" expression="${VERSION}"/>
+      <param name="show.comments" expression="${show.comments}"/>
+      <param name="draft.mode" expression="${draft.mode}"/>
+      <param name="highlight.xslthl.config" expression="${xslthl.config.url}"/>
+    </xslt>
+    
+    <!-- PDF -->
+    <xslt in="doc/isdoc-${VERSION}.xml" out="doc/isdoc.fo" style="doc/fo.xsl" force="true">
+      <factory name="com.icl.saxon.TransformerFactoryImpl"/>
+      <sysproperty key="org.apache.xerces.xni.parser.XMLParserConfiguration"
+        value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>      
+      <classpath>
+        <pathelement location="${saxon.jar}"/>        
+        <pathelement location="${saxon.extensions.jar}"/>
+        <pathelement location="${xslthl.jar}"/>        
+        <pathelement location="${xml-apis.jar}"/>
+        <pathelement location="${xerces.jar}"/>        
+      </classpath>
+      <xmlcatalog>
+        <catalogpath location="${db.xsl.dir}/catalog.xml"/>
+      </xmlcatalog>
+      <param name="profile.condition" expression="print"/>
+      <param name="profile.revision" expression="${VERSION}"/>
+      <param name="show.comments" expression="${show.comments}"/>
+      <param name="draft.mode" expression="${draft.mode}"/>
+      <param name="highlight.xslthl.config" expression="${xslthl.config.url}"/>
+    </xslt>
+    <!-- Produce PDF from FO -->
+    <java classpathref="xep-cp" classname="com.renderx.xep.XSLDriver" failonerror="true">
+      <sysproperty key="com.renderx.xep.CONFIG" value="c:/program files/renderx/xep/xep.xml"/>      
+      <arg value="-quiet"/>
+      <arg value="-fo"/>
+      <arg value="doc/isdoc.fo"/>
+      <arg value="-pdf"/>
+      <arg value="doc/isdoc.pdf"/>
+    </java>
+  </target>
+
+  <target name="spec-rules">
+    <tstamp>
+      <format property="DATE_CS" pattern="d.M.yyyy"/>
+      <format property="DATE_EN" pattern="yyyy-MM-dd"/>
+    </tstamp>
+    
+    <!-- XInclude first -->
+    <xslt in="doc/pravidla.xml" out="doc/pravidla.inc" style="copy.xsl" force="true">
+      <factory name="net.sf.saxon.TransformerFactoryImpl">
+        <attribute name="http://saxon.sf.net/feature/xinclude-aware" value="true"/>
+      </factory>
+      <classpath location="${saxon9.jar}"/>
+    </xslt>
+    
+    <!-- Expand version -->
+    <copy file="doc/pravidla.inc"
+      tofile="doc/pravidla-${VERSION}.xml"
+      overwrite="true"
+      encoding="utf-8">
+      <filterchain>
+        <replacetokens>
+          <token key="VERSION" value="${VERSION}"/>
+        </replacetokens>
+      </filterchain>
+    </copy>
+    
+    <!-- HTML -->
+    <xslt in="doc/pravidla-${VERSION}.xml" out="doc/pravidla-${DSTAMP}.html" style="doc/html.xsl" force="true">
+      <factory name="com.icl.saxon.TransformerFactoryImpl"/>
+      <sysproperty key="org.apache.xerces.xni.parser.XMLParserConfiguration"
+        value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>      
+      <classpath>
+        <pathelement location="${saxon.jar}"/>        
+        <pathelement location="${saxon.extensions.jar}"/>
+        <pathelement location="${xslthl.jar}"/>        
+        <pathelement location="${xml-apis.jar}"/>
+        <pathelement location="${xerces.jar}"/>  
+      </classpath>
+      <xmlcatalog>
+        <catalogpath location="${db.xsl.dir}/catalog.xml"/>
+      </xmlcatalog>
+      <param name="profile.condition" expression="html"/>
+      <param name="profile.revision" expression="${VERSION}"/>
+      <param name="show.comments" expression="${show.comments}"/>
+      <param name="draft.mode" expression="${draft.mode}"/>
+      <param name="highlight.xslthl.config" expression="${xslthl.config.url}"/>
+    </xslt>
+    
+    <!-- PDF -->
+    <xslt in="doc/pravidla-${VERSION}.xml" out="doc/pravidla.fo" style="doc/fo.xsl" force="true">
+      <factory name="com.icl.saxon.TransformerFactoryImpl"/>
+      <sysproperty key="org.apache.xerces.xni.parser.XMLParserConfiguration"
+        value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>      
+      <classpath>
+        <pathelement location="${saxon.jar}"/>        
+        <pathelement location="${saxon.extensions.jar}"/>
+        <pathelement location="${xslthl.jar}"/>        
+        <pathelement location="${xml-apis.jar}"/>
+        <pathelement location="${xerces.jar}"/>        
+      </classpath>
+      <xmlcatalog>
+        <catalogpath location="${db.xsl.dir}/catalog.xml"/>
+      </xmlcatalog>
+      <param name="profile.condition" expression="print"/>
+      <param name="profile.revision" expression="${VERSION}"/>
+      <param name="show.comments" expression="${show.comments}"/>
+      <param name="draft.mode" expression="${draft.mode}"/>
+      <param name="highlight.xslthl.config" expression="${xslthl.config.url}"/>
+    </xslt>
+    <!-- Produce PDF from FO -->
+    <java classpathref="xep-cp" classname="com.renderx.xep.XSLDriver" failonerror="true">
+      <sysproperty key="com.renderx.xep.CONFIG" value="c:/program files/renderx/xep/xep.xml"/>      
+      <arg value="-quiet"/>
+      <arg value="-fo"/>
+      <arg value="doc/pravidla.fo"/>
+      <arg value="-pdf"/>
+      <arg value="doc/pravidla-${DSTAMP}.pdf"/>
+    </java>
+  </target>
+  
+  <target name="readme">
+    <tstamp>
+      <format property="DATE_CS" pattern="d.M.yyyy"/>
+      <format property="DATE_EN" pattern="yyyy-MM-dd"/>
+    </tstamp>
+    <copy file="doc/readme-cs-template.xml"
+      tofile="doc/readme-cs.xml"
+      overwrite="true"
+      encoding="utf-8">
+      <filterchain>
+        <replacetokens>
+          <token key="DATE" value="${DATE_CS}"/>
+          <token key="VERSION" value="${VERSION}"/>
+        </replacetokens>
+      </filterchain>
+    </copy>
+    <xslt in="doc/readme-cs.xml" out="readme-cs.html" style="doc/readme-html.xsl" force="true">
+      <factory name="com.icl.saxon.TransformerFactoryImpl"/>
+      <sysproperty key="org.apache.xerces.xni.parser.XMLParserConfiguration"
+        value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>      
+      <classpath>
+        <pathelement location="${saxon.jar}"/>        
+        <pathelement location="${saxon.extensions.jar}"/>
+        <pathelement location="${xslthl.jar}"/>        
+        <!--<pathelement location="${xml-apis.jar}"/>
+        <pathelement location="${xerces.jar}"/>-->        
+      </classpath>
+      <xmlcatalog>
+        <catalogpath location="${db.xsl.dir}/catalog.xml"/>
+      </xmlcatalog>
+      <param name="profile.condition" expression="html"/>
+      <param name="profile.revision" expression="${VERSION}"/>
+      <param name="show.comments" expression="${show.comments}"/>
+    </xslt>
+    <copy file="doc/readme-en-template.xml"
+      tofile="doc/readme-en.xml"
+      overwrite="true"
+      encoding="utf-8">
+      <filterchain>
+        <replacetokens>
+          <token key="DATE" value="${DATE_EN}"/>
+          <token key="VERSION" value="${VERSION}"/>
+        </replacetokens>
+      </filterchain>
+    </copy>
+    <xslt in="doc/readme-en.xml" out="readme-en.html" style="doc/readme-html.xsl" force="true">
+      <factory name="com.icl.saxon.TransformerFactoryImpl"/>
+      <sysproperty key="org.apache.xerces.xni.parser.XMLParserConfiguration"
+        value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>      
+      <classpath>
+        <pathelement location="${saxon.jar}"/>        
+        <pathelement location="${saxon.extensions.jar}"/>
+        <pathelement location="${xslthl.jar}"/>        
+        <!--<pathelement location="${xml-apis.jar}"/>
+        <pathelement location="${xerces.jar}"/>-->        
+      </classpath>
+      <xmlcatalog>
+        <catalogpath location="${db.xsl.dir}/catalog.xml"/>
+      </xmlcatalog>
+      <param name="profile.condition" expression="html"/>
+      <param name="profile.revision" expression="${VERSION}"/>
+      <param name="show.comments" expression="${show.comments}"/>
+      <param name="draft.mode" expression="${draft.mode}"/>      
+    </xslt>
+  </target>
+  
+  <target name="dist" depends="doctypes, schematron, spec, readme">
+    <tstamp>
+      <format property="DATE_CS" pattern="d.M.yyyy"/>
+      <format property="DATE_EN" pattern="yyyy-MM-dd"/>
+    </tstamp>
+    <!--
+    <copy file="readme.template.txt"
+          tofile="readme-cs.txt"
+          overwrite="true"
+          encoding="utf-8">
+      <filterchain>
+        <replacetokens>
+          <token key="DATE" value="${DATE_CS}"/>
+          <token key="VERSION" value="${VERSION}"/>
+        </replacetokens>
+      </filterchain>
+    </copy>
+    <copy file="readme.template-en.txt"
+      tofile="readme-en.txt"
+      overwrite="true"
+      encoding="utf-8">
+      <filterchain>
+        <replacetokens>
+          <token key="DATE" value="${DATE_EN}"/>
+          <token key="VERSION" value="${VERSION}"/>
+        </replacetokens>
+      </filterchain>
+    </copy>
+    -->
+    <zip zipfile="isdoc-schema-${VERSION}${BETA}-${DSTAMP}.zip">
+      <zipfileset dir=".">
+        <include name="xsd/xmldsig-core-schema.xsd"/>
+        <include name="xsd/isdoc-invoice-${VERSION}.xsd"/>
+        <include name="xsd/isdoc-invoice-dsig-${VERSION}.xsd"/>
+        <include name="xsd/isdoc-commondocument-${VERSION}.xsd"/>
+        <include name="xsd/isdoc-commondocument-dsig-${VERSION}.xsd"/>
+        <include name="xsd/isdoc-manifest-${VERSION}.xsd"/>
+      </zipfileset>
+      <zipfileset dir=".">
+        <include name="sch/isdoc-${VERSION}.sch"/>
+      </zipfileset>
+      <zipfileset dir=".">
+        <include name="doc-cs/**"/>
+        <include name="doc-en/**"/>
+      </zipfileset>
+      <zipfileset dir=".">
+        <include name="doc/isdoc.pdf"/>
+        <include name="doc/isdoc.html"/>
+      </zipfileset>
+      <!--
+      <zipfileset dir=".">
+        <include name="sch/**"/>
+      </zipfileset>
+      -->
+      <!--
+      <zipfileset dir=".">
+        <include name="readme-cs.txt"/>
+        <include name="readme-en.txt"/>
+      </zipfileset>
+      -->
+      <zipfileset dir=".">
+        <include name="readme-cs.html"/>
+        <include name="readme-en.html"/>
+      </zipfileset>
+      <zipfileset dir=".">
+        <include name="examples/**"/>
+      </zipfileset>
+    </zip>    
+  </target>
+  
+</project>
