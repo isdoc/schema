@@ -36,7 +36,7 @@
 <xsl:param name="preface.autolabel" select="0"/>
 
 <!-- Nechceme obrázek -->
-<xsl:param name="draft.watermark.image" select="''"/>
+<xsl:param name="draft.watermark.image" select="'draft.svg'"/>
 <xsl:param name="draft.mode" select="'maybe'"/>
 
 <!-- Nadpisy jsou zarovnány s textem, jak je zvykem v evropské typografii -->
