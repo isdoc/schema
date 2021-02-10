@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0" xml:lang="cs">
+    <info>
+        <title>ISDOC – Czech national standard for e-invoicing</title>
+        <subtitle>Version @VERSION@ from @DATE@</subtitle>
+        <copyright>
+            <year>2014</year>
+            <holder>ICT UNIE o.s.</holder>
+        </copyright>
+    </info>
+    <para>Attached schemas and standard formally define exchange format for invoices and other types of documents. The
+        format was created and it is further maintained by Working Group for Electronic Data
+        Interchange Standards of ICT Unie o.s. (<link xlink:href="http://www.isdoc.cz"
+            >www.isdoc.cz</link>).</para>
+    <para>Inquires can be sent to <email>info@isdoc.cz</email>.</para>
+    <section>
+        <title>Content of distribution</title>
+        <variablelist>
+            <varlistentry>
+                <term><filename>doc/</filename></term>
+                <listitem>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="doc/isdoc.pdf">isdoc.pdf</filename></term>
+                            <listitem>
+                                <para>Standard ISDOC @VERSION@ (in Czech)</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="doc/isdoc.html">isdoc.html</filename></term>
+                            <listitem>
+                                <para>HTML rendering of the standard (in Czech)</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>xsd/</filename></term>
+                <listitem>
+                    <para>Schemas in W3C XML Schema</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-invoice-@VERSION@.xsd"
+                                    >isdoc-invoice-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Base invoice schema</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-invoice-dsig-@VERSION@.xsd"
+                                >isdoc-invoice-dsig-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Schema validating also structure of an embeded digital
+                                    signature</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="xsd/isdoc-order-@VERSION@.xsd"
+                                >isdoc-order-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Base order schema</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="xsd/isdoc-order-dsig-@VERSION@.xsd"
+                                >isdoc-order-dsig-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Schema validating also structure of an embeded digital
+                                    signature</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-commondocument-@VERSION@.xsd"
+                                >isdoc-commondocument-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Base nonpayment bank document schema</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-commondocument-dsig-@VERSION@.xsd"
+                                >isdoc-commondocument-dsig-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Schema validating also structure of an embeded digital
+                                    signature</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/xmldsig-core-schema.xsd"
+                                >xmldsig-core-schema.xsd</filename></term>
+                            <listitem>
+                                <para>XML Signature schema</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-manifest-@VERSION@.xsd"
+                                >isdoc-manifest-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>ISDOC archive manifest schema.</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>sch/</filename></term>
+                <listitem>
+                    <para>Schematron schema for rules</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="sch/isdoc-@VERSION@.sch"
+                                >isdoc-@VERSION@.sch</filename></term>
+                            <listitem>
+                                <para>Schematron schema covering selected rules</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            
+            <varlistentry>
+                <term><filename>doc-cs/</filename></term>
+                <listitem>
+                    <para>Hypertext schema documentation with Czech comments</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-cs/isdoc-invoice-@VERSION@.html">isdoc-invoice-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Invoice documentation</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-cs/isdoc-commondocument-@VERSION@.html">isdoc-commondocument-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Nonpayment bank document documentation</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="doc-cs/isdoc-order-@VERSION@.html">isdoc-order-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Order documentation</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>doc-en/</filename></term>
+                <listitem>
+                    <para>Hypertext schema documentation with English comments</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-en/isdoc-invoice-@VERSION@.html">isdoc-invoice-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Invoice documentation</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-en/isdoc-commondocument-@VERSION@.html">isdoc-commondocument-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Nonpayment bank document documentation</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="doc-en/isdoc-order-@VERSION@.html">isdoc-order-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Order documentation</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>examples/</filename></term>
+                <listitem><para>Sample ISDOC documents.</para></listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+    <xi:include href="changelog-en.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>    
+ </article>

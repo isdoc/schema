@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?><article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="5.0" xml:lang="cs">
+  <info>
+    <title>ISDOC – obchodní pravidla a implementační poznámky<!--6.0.2--></title>
+    <copyright>
+      <year>2014</year>
+      <holder>ICT UNIE o.s.</holder>
+    </copyright>
+    <pubdate><?dbtimestamp padding="0"?></pubdate>
+  </info>
+  <para>Tento dokument shrnuje pravidla kladená na dokumenty vyhovující standardu <link xlink:href="http://isdoc.cz/">ISDOC</link>, která nejsou zachytitelná v podobě XML schématu.
+    Rovněž obsahuje pravidla a poznámky, které jsou vodítkem pro korektní implementaci producentů a
+    konzumentů dokumentů ISDOC. V budoucnu může být přímo začleněn do standardu ISDOC.</para>
+  <section xml:id="pravidla" xml:base="isdoc.xml">
+    <title>Pravidla</title>
+    <para>Jednotlivé typy dokumentů ISDOC musí splňovat následující pravidla. Některá z následujících pravidel lze 
+    kontrolovat strojově pomocí schématu v jazyce Schematron. Odpovídající schéma je v příloze <xref linkend="schematron"/>. 
+    </para>
+    <section xml:id="pravidla-invoice">
+      <title>Pravidla pro typ dokumentu daňový doklad</title>
+      <section xml:id="invoice-rule-1">
+        <info>
+          <title>Vazba na původní doklad</title>
+          <sch:rule context="isdoc:Invoice[isdoc:DocumentType = (2,3,6)]">
+            <sch:assert test="isdoc:OriginalDocumentReferences/*"/>
+          </sch:rule>
+        </info>
+        <para>Pro typ dokladu 2, 3 a 6 musí existovat vazba na původní doklad. Konkrétně tedy pro <tag>DocumentType</tag> = 2, 3, 6 musí existovat element <tag>OriginalDocumentReference</tag> a musí byt neprázdný.</para>
+      </section>
+      <section xml:id="invoice-rule-2">
+        <info>
+          <title>Konzistentní uvádění cizí měny</title>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:LineExtensionAmount]">
+            <sch:assert test="isdoc:LineExtensionAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:LineExtensionAmountTaxInclusive]">
+            <sch:assert test="isdoc:LineExtensionAmountTaxInclusiveCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DepositAmount]">
+            <sch:assert test="isdoc:DepositAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxableDepositAmount]">
+            <sch:assert test="isdoc:TaxableDepositAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxInclusiveDepositAmount]">
+            <sch:assert test="isdoc:TaxInclusiveDepositAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxAmount]">
+            <sch:assert test="isdoc:TaxAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxableAmount]">
+            <sch:assert test="isdoc:TaxableAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxInclusiveAmount]">
+            <sch:assert test="isdoc:TaxInclusiveAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxableAmount]">
+            <sch:assert test="isdoc:AlreadyClaimedTaxableAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxAmount]">
+            <sch:assert test="isdoc:AlreadyClaimedTaxAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxInclusiveAmount]">
+            <sch:assert test="isdoc:AlreadyClaimedTaxInclusiveAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxableAmount]">
+            <sch:assert test="isdoc:DifferenceTaxableAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxAmount]">
+            <sch:assert test="isdoc:DifferenceTaxAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxInclusiveAmount]">
+            <sch:assert test="isdoc:DifferenceTaxInclusiveAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxExclusiveAmount]">
+            <sch:assert test="isdoc:TaxExclusiveAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxExclusiveAmount]">
+            <sch:assert test="isdoc:AlreadyClaimedTaxExclusiveAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxExclusiveAmount]">
+            <sch:assert test="isdoc:DifferenceTaxExclusiveAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PayableRoundingAmount]">
+            <sch:assert test="isdoc:PayableRoundingAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PaidDepositsAmount]">
+            <sch:assert test="isdoc:PaidDepositsAmountCurr"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PayableAmount]">
+            <sch:assert test="isdoc:PayableAmountCurr"/>
+          </sch:rule>          
+        </info>
+        <para>Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element <tag>ForeignCurrencyCode</tag>, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na <code>Curr</code>.</para>        
+      </section>
+      <section xml:id="invoice-rule-3">
+        <info>
+          <title>Konzistentní uvádění tuzemské měny</title>
+          <sch:rule context="isdoc:Invoice[not(isdoc:ForeignCurrencyCode)]">
+            <sch:assert test="isdoc:CurrRate = 1"/>
+            <sch:assert test="isdoc:RefCurrRate = 1"/>
+          </sch:rule>
+          <sch:rule context="isdoc:Invoice[not(isdoc:ForeignCurrencyCode)]">
+            <sch:assert test="not(.//isdoc:LineExtensionAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:LineExtensionAmountTaxInclusiveCurr)"/>
+            <sch:assert test="not(.//isdoc:DepositAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:TaxableDepositAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:TaxInclusiveDepositAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:TaxAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:TaxableAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:TaxInclusiveAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:AlreadyClaimedTaxableAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:AlreadyClaimedTaxAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:AlreadyClaimedTaxInclusiveAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:DifferenceTaxableAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:DifferenceTaxAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:DifferenceTaxInclusiveAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:TaxExclusiveAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:AlreadyClaimedTaxExclusiveAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:DifferenceTaxExclusiveAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:PayableRoundingAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:PaidDepositsAmountCurr)"/>
+            <sch:assert test="not(.//isdoc:PayableAmountCurr)"/>
+          </sch:rule>
+        </info>
+        <para>Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element <tag>ForeignCurrencyCode</tag>, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na <code>Curr</code>. Položky s kursem (<tag>CurrRate</tag> i <tag>RefCurrRate</tag>) musí být rovny hodnotě 1.</para>        
+      </section>
+      <section xml:id="invoice-rule-4">
+        <info>
+          <title>Tuzemská a zahraniční měna musí být rozdílná</title>
+          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]">
+            <sch:assert test="isdoc:ForeignCurrencyCode != isdoc:LocalCurrencyCode"/>            
+          </sch:rule>
+        </info>
+        <para>U dokladu v zahraniční měně nesmí být měna lokální a zahraniční shodné. Konkrétně hodnota povinné položky <tag>LocalCurrencyCode</tag> se nesmí rovnat hodnotě nepovinné položky <tag>ForeignCurrencyCode</tag>.</para>
+      </section>
+      <section xml:id="invoice-rule-5">
+        <info>
+          <title>Nedaňový doklad nesmí obsahovat řádkové položky podléhající DPH</title>
+          <sch:rule context="isdoc:Invoice[isdoc:VATApplicable = 'false']">
+            <sch:assert test="every $va in isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:ClassifiedTaxCategory/isdoc:VATApplicable satisfied $va = 'false'"/>            
+          </sch:rule>
+        </info>
+        <para>Je-li doklad nedaňový (element <tag>VATApplicable</tag> obsahuje hodnotu
+            <literal>false</literal>), musejí být i všechny jeho řádkové položky nedaňové, tedy
+          element <tag>VATApplicable</tag> uvnitř elementu <tag>ClassifiedTaxCategory</tag> rovněž
+          obsahuje hodnotu <literal>false</literal>. Obráceně to však neplatí – na dokladu
+          podléhajícím DPH mohou být jednotlivé položky, které nejsou v evidenci DPH.</para>
+      </section>
+      <section xml:id="invoice-rule-6">
+        <info>
+          <title>Jednotky jednotlivých šarží v jedné řádce musí být stejné a odpovídat jednotce množství pro celou řádku</title>
+          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine[isdoc:Item/isdoc:StoreBatches]">
+            <sch:assert test="count(distinct-values(isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity/@unitCode)) le 1"/>            
+            <sch:assert test="if (isdoc:InvoicedQuantity/@unitCode) then                                 every $q in isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity) satisfies $q/@unitCode = isdoc:InvoicedQuantity/@unitCode                               else true()"/>
+          </sch:rule>
+        </info>
+        <para>Jednotka v rozpisu všech šarží/sériových čísel (element
+          <tag>StoreBatches</tag>) musí být stejná jako jednotka pro množství na řádce faktury.
+          Jednotky u šarží jedné řádky faktury musí být stejné.
+          Pokud atribut pro jednotku v rozpisu šarží/sériových čísel není uveden, 
+          tak se předpokládá, že je množství uvedeno ve stejné jednotce
+          jako množství na řádce faktury. </para>
+      </section>
+      <section xml:id="invoice-rule-7">
+        <info>
+          <title>Součet množství za jednotlivé šarže musí odpovídat množství za celou řádku</title>
+          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine[isdoc:Item/isdoc:StoreBatches]">
+            <sch:assert test="sum(isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity) = isdoc:InvoicedQuantity"/>            
+          </sch:rule>
+        </info>
+        <para>Součet <tag>Quantity</tag> ze všech záznamů rozpisu šarží/sériových čísel musí odpovídat <tag>InvoicedQuantity</tag> dané řádky faktury.</para>
+      </section>
+      <section xml:id="invoice-rule-8">
+        <info>
+          <title>Sekundární identifikace zboží může být uvedena pouze v případě, že je uvedena i primární</title>
+          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:Item[isdoc:SecondarySellersItemIdentification]">
+            <sch:assert test="isdoc:SellersItemIdentification"/>            
+          </sch:rule>
+        </info>
+        <para>Nepovinnou položku <tag>SecondarySellersItemIdentification</tag> lze uvést pouze v případě, že je uvedena také položka <tag>SellersItemIdentification</tag>.</para>
+      </section>
+      <section xml:id="invoice-rule-9">
+        <info>
+          <title>Terciální identifikace zboží může být uvedena pouze v případě, že je uvedena i primární a sekundární</title>
+          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:Item[isdoc:TertiarySellersItemIdentification]">
+            <sch:assert test="isdoc:SellersItemIdentification and isdoc:SecondarySellersItemIdentification"/>            
+          </sch:rule>
+        </info>
+        <para>Nepovinnou položku <tag>TertiarySellersItemIdentification</tag> lze uvést pouze v případě, že jsou uvedeny také položky <tag>SellersItemIdentification</tag> a <tag>SecondarySellersItemIdentification</tag>.</para>
+      </section>
+      <section xml:id="invoice-rule-sdt-origin">
+        <info>
+          <title>Správce číselníku podrobnějšího typu dokumentu</title>
+        </info>
+        <para>Element <tag>SubDocumentTypeOrigin</tag> musí obsahovat pouze hodnoty uvedené v tabulce <xref linkend="tab.std-origin"/>.</para>
+        <table xml:id="tab.std-origin">
+          <title>Přípustné hodnoty pro element <tag>SubDocumentTypeOrigin</tag></title>
+          <tgroup cols="4">
+            <colspec colwidth="1*"/>
+            <colspec colwidth="3*"/>
+            <colspec colwidth="2*"/>
+            <colspec colwidth="2*"/>
+            <thead>
+              <row>
+                <entry>Hodnota</entry>
+                <entry>Popis</entry>
+                <entry>Definice číselníku</entry>
+                <entry>Přidáno</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><code>CBA</code></entry>
+                <entry>Česká bankovní asociace</entry>
+                <entry>viz <xref linkend="bib.cba29"/></entry>
+                <entry>1. ledna 2014</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </section>
+    <section xml:id="pravidla-commondocument">
+      <title>Pravidla pro typ dokumentu neplatební dokument</title>
+      <section xml:id="commondocument-rule-sdt-origin">
+        <info>
+          <title>Správce číselníku podrobnějšího typu dokumentu</title>
+        </info>
+        <para>Element <tag>SubDocumentTypeOrigin</tag> musí obsahovat pouze hodnoty uvedené v tabulce <xref linkend="tab.std-origin"/>.</para>
+      </section>
+    </section>      
+  </section>
+  <appendix xml:id="poznamky" xml:base="isdoc.xml">
+    <title>Implementační poznámky</title>
+    <section xml:id="poznamky-maximalni-export">
+      <title>Zásada exportu maximálního množství informací</title>
+      <para>Producent ISDOC by měl do dokumentu ISDOC zapisovat všechny údaje, které má k dispozici
+        a je možné je ve formátu ISDOC reprezentovat, i přestože takové údaje mohou být ve formátu
+        ISDOC definovány jako nepovinné. Minimálně by se měly zapisovat všechny údaje, které je
+        producent schopen zapsat do tiskové podoby dokladu. Například je-li v tiskové podobě faktury
+        seznam objednávek, nesmí chybět ani v odpovídajícím dokumentu ISDOC. Uvedení více informací
+        v tiskové podobě než v souboru ISDOC by bylo proti smyslu formátu ISDOC.</para>
+      <para>Příklady nepovinných údajů a situací, kdy by se měly v dokumentu ISDOC objevit:<itemizedlist>
+          <listitem>
+            <para>Element <tag>IssuingSystem</tag> – „Identifikace systému, který odesílá/generuje
+              fakturu“. Každý systém má nějaké jméno, označení, verzi atd. a neexistuje proto důvod
+              pro nevyplnění elementu. Navíc přítomnost takovéto informace umožňuje rychleji zjistit
+              „zdroj problémů“, pokud dokument plně neodpovídá standardu ISDOC.</para>
+          </listitem>
+          <listitem>
+            <para>Element <tag>Note</tag> – „Poznámka“. Obsahuje-li systém k danému dokladu nějakou
+              poznámku, musí ji na doklad uvést.</para>
+          </listitem>
+          <listitem>
+            <para>Kolekce <tag>OrderReferences</tag> – „Hlavičková kolekce objednávek pro případnou
+              vazbu“. Umožňuje-li systém vazby mezi objednávkami a daňovými doklady, musí
+              vyexportovat všechny známé vazby s maximem informací. Totéž platí i o řádkových
+              kolekcích, kde jsou i položky odkazující, který řádek objednávky konkrétní daňový
+              doklad fakturuje. Opět, pokud tuto informaci emitující systém eviduje, musí ji do
+              ISDOC uvést.</para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+    <section>
+      <title xml:id="poznamky-vypocet-dph">Výpočet DPH</title>
+      <para>Zákon předepisuje u daňového dokladu jasně vyjádřené celkové částky daně po jednotlivých
+        sazbách. Formát ISDOC proto nevyžaduje, aby součet částek daně na jednotlivých řádkách
+        odpovídal hodnotě uvedené v daňovém sumáři (element <tag>TaxTotal</tag>). Pokud je součet po
+        řádkách rozdílný od hodnoty v sumáři, má přednost hodnota v sumáři DPH.</para>
+      <para>Je věcí konzumenta ISDOC, jak se vyrovná s tím, že příchozí faktura obsahuje v řádcích
+        něco jiného než v součtech. Některé implementace mohou například převzít řádky, jak přišly,
+        a v případě menších rozdílů oproti sumáři k nim dogenerovat korekční řádek za příslušnou
+        sazbu. Další možností je přepočítávání řádků podle obchodních pravidel přijímacího software
+        (a tedy jejich korekce) tak, aby v součtu sumáři DPH odpovídaly (tzv. metoda rozpouštění
+        rozdílu do řádků). Pokud je rozdíl velmi veliký a nelze jej při nejlepší vůli považovat za
+        zaokrouhlovací rozdíl, je také možné upozornit obsluhu, aby tento doklad vůbec neimportovala
+        a vrátila jej odesílateli. V tomto případě je velmi vhodné vygenerovat obsluze vytisknutelný
+        protokol, který smysluplně popíše, co s čím nesouhlasí, protože obsluha emitující strany
+        nemusí být zcela znalá a potřebuje vlastně jen předat pokud možno přesné informace svému
+        dodavateli aplikace.</para>
+    </section>
+    <section>
+      <title>Výpočet celkové ceny z jednotkové a počtu kusů</title>
+      <para>Toto pravidlo řeší vztah řádkových položek jednotková cena (JC), počet kusů (PK) a
+        celková cena (CC). Na řádku nemusí platit, že <inlineequation>
+          <mathphrase>JC*PK=CC</mathphrase>
+        </inlineequation>. Důležitá pro další zpracování je pouze celková cena. Situace, na které je
+        dobře vidět, kdy problém nastane, je prodej velkého počtu kusů o malé jednotkové ceně.
+        Například pokud bychom vycházeli z nepatrné jednotkové ceny jednoho špendlíku, která je
+        uložena technicky na nějaký počet desetinných míst, tu pak násobili počtem kusů v krabici
+        (např. deset tisíc kusů) tak můžeme v celkové ceně dostat velmi veliký rozdíl. A protože
+        v reálném světě se prostě krabice špendlíků prodává za celkovou cenu a nikdo neřeší
+        jednotkovou cenu jednoho špendlíku, tak se tohoto pravidla drží i ISDOC. Jednotková cena na
+        řádku sice existuje, protože je to zákonná povinná položka daňového dokladu, ale její obsah
+        je uložen na tolik desetinných míst, na kolik stačí daný výpočetní systém. Neboli může se
+        stát, že v konkrétním mezním případě nesouhlasí rovnice <inlineequation>
+          <mathphrase>JC*PK=CC</mathphrase>
+        </inlineequation>. V tom případě má přednost a do dalších výpočtů postupuje celková cena.
+        Další související věcí je zaokrouhlování v případě vizuálního zobrazení faktury, což typicky
+        provádějí aplikace typu ISDOC Reader. Tyto aplikace jsou zodpovědné za vizuální stránku
+        faktury, takže i kdyby tam emitující systém uložil jednotkovou cenu s vysokou přesností
+        (např. „11.25531246654“), tak aby tento řádek vypadal graficky rozumně v porovnání
+        s ostatními řádky, musí se před zobrazením zaokrouhlit a opět dojde k porušení rovnice <inlineequation>
+          <mathphrase>JC*PK=CC</mathphrase>
+        </inlineequation>.</para>
+    </section>
+    <section>
+      <title>Identifikátory</title>
+      <para>Údaje s datovým typem <code>UUIDType</code> musí být do dokumentu ISDOC vyplněny
+        v souladu s principem jednoznačného identifikátoru UUID. Jedná se o elementy <tag>UUID</tag>
+        používané jako identifikátor uvnitř dalších elementů. Například tedy není možné vyplňovat do
+        těchto položek prázdný UUID (00000000-0000-0000-0000-000000000000). Ten ač vyhoví kontrole
+        v XSD na skladbu této položky, tak v případě posílání více dokladů s prázdným UUID se import
+        zachová špatně hned u druhého takového dokladu a prohlásí, že jde o opravu prvního
+        dokladu.</para>
+      <note>
+        <para>Historicky se vyvíjelo i pravidlo v XSD týkající se UUID. Pro verzi ISDOC 5.1 se
+          nesmělo jednat o prázdný řetězec. Verze 5.2 dodefinovala syntaktickou skladbu UUID do
+          skupin oddělených pomlčkou včetně definice množiny znaků A-Z a 0-9. Verze 5.3 přinesla
+          rozšíření položek UUID i o malá písmena, čímž se definice stala kompatibilní s <link xlink:href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</link>.</para>
+      </note>
+      <para>Pozor, hodnoty UUID nejsou z principu citlivé na velikost písmen, neboli přijde-li
+        jednou tentýž UUID malými písmeny a jednou velkými písmeny, jedná se týž identifikátor a
+        tedy totožný doklad. Proto je v případě textového porovnání s již uloženými UUID v databázi
+        vhodné tyto položky normalizovat například na tvar „všechna písmena velká“.</para>
+    </section>
+    <section>
+      <title>Vyplňování položek v souladu s legislativou</title>
+      <para>U mnoha položek vyplývá z právních předpisů povinnost je vyplnit nějakou hodnotou.
+        Pravidla ISDOC však mají být pokud možno na legislativě nezávislá, a proto se zde nesnažíme
+        udržovat jejich kompletní přehled. Příklady pravidel:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Element <tag>CompanyID</tag> (DIČ) by měl být u dokladu, který je předmětem DPH,
+            vždy vyplněn, protože se jedná o jednu z povinných položek daňového dokladu.</para>
+        </listitem>
+        <listitem>
+          <para>Obdobně element <tag>TaxPointDate</tag> – „Datum zdanitelného plnění“, které by mělo
+            být na daňovém dokladu vždy vyplněno. Toto neplatí pro dobropisy a vrubopisy, u nich je
+            datem DPH podle zákona datum doručení dokladu protistraně, takže na vystaveném dokladu
+            se neuvádí. Pokud nejde o daňový doklad, element se rovněž v dokumentu ISDOC
+            nepoužije.</para>
+        </listitem>
+        <listitem>
+          <para>Pokud je odesílajícím subjektem česká firma, musí element
+              <tag>Invoice</tag>/<tag>AccountingSupplierParty</tag>/<tag>PostalAddress</tag>/<tag>Country</tag>/<tag>IdentificationCode</tag> v souladu s ISO 3166-1 obsahovat hodnotu „<code>CZ</code>“.</para>
+        </listitem>
+        <listitem>
+          <para>Je vyplněna informace o zápisu v rejstříku
+              <tag>Invoice</tag>/<tag>AccountingSupplierParty</tag><tag>RegisterIdentification</tag>.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Obecně lze požadovat, aby doklady splňovaly všechny náležitosti předepsané legislativou
+        platnou v zemi vystavitele dokladu.</para>
+    </section>
+    <section>
+      <title>Finanční částky</title>
+      <para>Ve finančních položkách všech dokladů používáme typicky vždy kladná čísla s výjimkou
+        případu, kdy uvedená hodnota je opravdu záporná. Pravidlo se týká například elementů
+          <tag>AlreadyClaimedTaxableAmount</tag>, <tag>AlreadyClaimedTaxAmount</tag>,
+          <tag>AlreadyClaimedTaxInclusiveAmount</tag>, <tag>AlreadyClaimedTaxExclusiveAmount</tag>,
+          <tag>PaidDepositsAmount</tag>, které se ze své povahy odčítají.</para>
+      <para>Konkrétně jsou důležité dvě situace:</para>
+      <orderedlist numeration="loweralpha">
+        <listitem>
+          <para> vztah daňových záloh: </para>
+          <para><inlineequation>
+              <mathphrase>TaxInclusiveAmount -
+                  AlreadyClaimedTaxInclusiveAmount =
+                  DifferenceTaxInclusiveAmount</mathphrase>
+            </inlineequation></para>
+          <para>neboli celková částka s daní – položka předepsané daňové zálohy v kladné částce =
+            rozdíl, tj. celková částka k zaplacení s daní.</para>
+        </listitem>
+        <listitem>
+          <para> vztah nedaňových záloh a zaokrouhlení až k částce „k zaplacení“: </para>
+          <para><inlineequation>
+              <mathphrase>DifferenceTaxInclusiveAmount + PayableRoundingAmount
+                - PaidDepositsAmount = PayableAmount</mathphrase>
+            </inlineequation></para>
+          <para>neboli celková částka k zaplacení s daní + haléřové vyrovnání (zaokrouhlení) -
+            zaplacené nedaňové zálohy = částka k zaplacení.</para>
+        </listitem>
+      </orderedlist>
+      <para>Poslední, co v této souvislosti můžeme zmínit je situace dokladů typu
+          (<tag>DocumentType</tag>) 2 a 6, tzn. dobropis faktury a dobropis daňového zálohového
+        listu. I v těchto případech je doklad dobropisu v kladných částkách a až jeho povaha (tedy
+        fakt, že jde o dobropis) naznačují, že všechna čísla je od původní faktury vlastně třeba
+        odečíst. Dobropis jako takový je ale vždy v kladných částkách. Toto pravidlo bylo
+        formulováno a stalo se závazné s verzí 5.2.1. Uvedená hodnota má být na faktuře opravdu
+        záporná pouze v případě, když se někdo snaží tímto způsobem udělat dobropis. Pokud tím
+        neklesne částka celého dokladu do záporu (jinak řečeno pokud takové položky jsou
+        v minoritě), nelze proti tomu nic namítat, protože tento postup praxe používá a ISDOC na to
+        musí umět reagovat. Pokud by ale záporná měla být většina položek, je třeba jít už cestou
+        skutečného dobropisu (a tedy tato většina bude uvedena kladně, zatímco „menšinové“ položky
+        budou záporně).</para>
+    </section>
+    <section>
+      <title>Použití typů UUIDType a ID36Type</title>
+      <para>Ve formátu ISDOC existují elementy typu UUIDType a vedle nich elementy typu ID36Type.
+        Důvodem je, že některé položky musí být unikátní v rámci celého světa, typicky hlavičkový
+        identifikátor dokladu. Pod tímto identifikátorem doklad putuje vnějším světem a nesmí se
+        stát, že by se vyskytly na světě dva doklady se stejnou identifikací. Jiné položky,
+        například unikátní identifikátor řádku ID (element
+          <tag>Invoice/InvoiceLines/InvoiceLine/ID</tag>), musí zaručit unikátnost řádku jen v rámci
+        jednoho dokladu. Teoreticky by tedy stačilo definovat například osmi znakovou položku a
+        publikovat, že jde o unikátní identifikátor řádku v rámci dokladu. Protože ale některé
+        informační systémy jsou již navrženy robustně a mohou i na identifikátory řádků používat
+        UUID, zatímco jiné systémy mohou používat třeba jen pořadová čísla, bylo třeba vymyslet
+        takový způsob, který by všem dovolil do výsledného souboru ISDOC uložit hodnotu použitou
+        v daném ekonomickém systému. Ideální je tedy znaková položka o maximální délce 36 znaků, kam
+        si každý odesílací systém uloží, co používá. Podstatné je, že ručí za unikátnost v rámci
+        jednoho dokladu.</para>
+    </section>
+    <section>
+      <title>Uživatelské elementy</title>
+      <para>Uživatelské elementy existují v ISDOC hlavičkové a řádkové. Uživatelské elementy a
+        jejich obsah nejsou kontrolovány pomocí XML schématu a je tedy možné si do nich uložit
+        jakoukoliv strukturu XML. Tyto elementy nemají obsahovat žádná „oficiální“ data (tj. data,
+        která by měly využívat všechny systémy) – taková by patřila do společné nové verze formátu.
+        Uživatelské elementy jsou určeny pro konkrétní implementace, kdy se příjemce a vystavitel
+        dohodnou na jejich použití (v praxi se samozřejmě spíše dohodnou jejich IT dodavatelé, pokud
+        to není rovnou tentýž subjekt). Podstatné ale je, že při konstrukci jmen a jmenného prostoru
+        uživatelských elementů je třeba dodržovat určitou kázeň, aby se nemohlo stát, že dvě různé
+        implementace použijí stejně pojmenovaný element. Jmenný prostor uživatelského elementu proto
+        musí být unikátní, typicky obsahuje internetovou doménu realizační firmy. Příklad použití
+        uživatelského elementu: </para>
+      <programlisting>&lt;Extensions&gt;
+  &lt;extenze:AdditionalDiscount
+      xmlns:extenze="http://abra.eu/praha/divize415/novak/projekt_zakaznicke_slevy_na_poukazy"
+      &gt;10&lt;/extenze:AdditionalDiscount&gt;
+&lt;/Extensions&gt;</programlisting>
+      <para>Obdobně fungují i řádkové uživatelské elementy. Navíc je potřeba počítat s tím, že nelze
+        vyžadovat přítomnost uživatelských elementů na všech řádcích. Přijímací systém musí být
+        připraven na to, že uživatelské elementy součástí faktury vůbec nebudou.</para>
+      <para>Kolem uživatelských položek je poměrně velká praktická zkušenost, někdy i negativní, kdy
+        se například systémy EDI kvůli uživatelským položkám rozjely do několika tzv. subsetů, na
+        jejichž překlad je třeba speciálních můstků nebo nemusí být vůbec možný. Proto ISDOC
+        přistoupil k uživatelským položkám jinak. Na jaře 2010 byla i do aplikací typu ISDOC Reader
+        doplněna schopnost zobrazit obsah uživatelských elementů, což dovoluje všem si vůbec
+        povšimnout, že tam nějaká uživatelská data jsou.</para>
+    </section>
+    <section>
+      <title>Zúčtovací faktura</title>
+      <para>Ve zúčtovací faktuře se v kolekci <tag>NonTaxedDeposits</tag> nedaňová zálohová faktura
+        uvádí pouze v případě, že byla zaplacena (a tudíž je třeba tuto zaplacenou částku odečíst od
+        částky k zaplacení), ale současně nebyla importována do daňové zálohy, která by mohla být
+        v kolekci <tag>TaxedDeposits</tag>. V tom případě by se totiž odečítala jednou z principu
+        nedaňové zálohy a současně z principu odečtu zdaněné zálohy a to by byla chyba. Pokud je
+        daná nedaňová záloha vztažena do daňového zálohového listu, tak se sám tento daňový zálohový
+        list odečítá ve zúčtovací faktuře a nedaňová záloha již ne. Typické použití je, že doklad
+        daňový zálohový list má kolekci nedaňových zálohových listů (zaplacených) a není třeba jej
+        platit. A pokud se tento daňový zálohový list použije ve zúčtovací faktuře v kolekci
+          <tag>TaxedDeposits</tag>, tak se odečte v příslušné kolekci a na konci není třeba zaplatit
+        nic.</para>
+    </section>
+    <section>
+      <title>Vztahy mezi údaji uváděnými uvnitř elementů <tag>TaxTotal</tag> a
+          <tag>TaxSubTotal</tag></title>
+      <para>Pro všechny údaje uváděné v sumáři DPH (element <tag>TaxSubTotal</tag>) musí v místní,
+        případně cizí měně platit: </para>
+      <para><inlineequation>
+          <mathphrase>TaxableAmount + TaxAmount = TaxInclusiveAmount</mathphrase>
+        </inlineequation></para>
+      <para><inlineequation>
+          <mathphrase>AlreadyClaimedTaxableAmount + AlreadyClaimedTaxAmount =
+            AlreadyClaimedTaxInclusiveAmount</mathphrase>
+        </inlineequation></para>
+      <para><inlineequation>
+          <mathphrase>DifferenceTaxableAmount + DifferenceTaxAmount =
+            DifferenceTaxInclusiveAmount.</mathphrase>
+        </inlineequation>
+      </para>
+      <para>Pro celkové položky daně v sumáři DPH <tag>TaxTotal</tag> musí platit, že se rovnají
+        součtu daní za každou sazbu tj. za každou kolekci <tag>TaxSubTotal</tag> a to včetně cizí
+        měny, pokud je použita. Tedy:</para>
+      <para><inlineequation>
+          <mathphrase>TaxTotal/TaxAmount = SUM(TaxSubtotal/TaxAmount)</mathphrase>
+        </inlineequation></para>
+    </section>
+    <section>
+      <title>Vztahy mezi údaji uvnitř elementu <tag>LegalMonetaryTotal</tag></title>
+      <para>Uvnitř celkového sumáře <tag>LegalMonetaryTotal</tag> musí jednotlivé položky souhlasit
+        se součty položek v příslušné sazbě (za všechny kolekce <tag>TaxSubTotal</tag>). Pro všechny
+        musí v místní, případně cizí měně platit:</para>
+      <para><inlineequation>
+          <mathphrase>LegalMonetaryTotal/TaxExclusiveAmount = SUM
+            (TaxSubTotal/TaxableAmount)</mathphrase>
+        </inlineequation></para>
+      <para><inlineequation>
+          <mathphrase>LegalMonetaryTotal/TaxInclusiveAmount = SUM
+            (TaxSubTotal/TaxInclusiveAmount)</mathphrase>
+        </inlineequation></para>
+      <para><inlineequation>
+          <mathphrase>LegalMonetaryTotal/AlreadyClaimedTaxExclusiveAmount = SUM
+            (TaxSubTotal/AlreadyClaimedTaxableAmount)</mathphrase>
+        </inlineequation></para>
+      <para><inlineequation>
+          <mathphrase>LegalMonetaryTotal/AlreadyClaimedTaxInclusiveAmount = SUM
+            (TaxSubTotal/AlreadyClaimedTaxInclusiveAmount)</mathphrase>
+        </inlineequation></para>
+      <para><inlineequation>
+          <mathphrase>LegalMonetaryTotal/DifferenceTaxExclusiveAmount = SUM
+            (TaxSubTotal/DifferenceTaxableAmount) </mathphrase>
+        </inlineequation></para>
+      <para><inlineequation>
+          <mathphrase>LegalMonetaryTotal/DifferenceTaxInclusiveAmount = SUM
+            (TaxSubTotal/DifferenceTaxInclusiveAmount)</mathphrase>
+        </inlineequation></para>
+    </section>
+    <section>
+      <title>Identifikace zápisu v rejstříku</title>
+      <para>Někteří producenti elektronických faktur mají problém s naplněním elementů
+          <tag>RegisterKeptAt</tag>, <tag>RegisterFileRef</tag> a <tag>RegisterDate</tag>, protože
+        údaje mají uložené jako jednu položku. Formát ISDOC proto alternativně umožňuje informaci
+        o zápisu do rejstříku uvést jako jeden řetězec v elementu <tag>Preformatted</tag>. Emitující
+        systém si může vybrat jeden z těchto dvou způsobů reprezentace zápisu do rejstříku. Příjemce
+        dokumentů ISDOC se musí vyrovnat s oběma způsoby.</para>
+    </section>
+    <section>
+      <title>Informace o platbě</title>
+      <para>Element <tag>PaymentMeans</tag> (podrobnosti platby) není povinný. Vynechat ho lze
+        například v situaci, kdy je doklad placený v hotovosti a hotovostní doklad ještě neexistuje
+        (a jeho název nelze tedy uvést do povinného podelementu <tag>Details</tag>). Pro příjemce je
+        to pokyn <quote>nic neplatit</quote>, což je žádoucí u všech jiných způsobů platby než
+        bankovním účtem.</para>
+      <para>Dalším typickým případem neuvedení elementu <tag>PaymentMeans</tag> je použití ISDOC pro
+        daňový zálohový list. Zde totiž nepřipadá v úvahu, že by měl být nějak placen, naopak on sám
+        se dělá pouze na přijatou platbu nedaňového zálohového listu, a předpokládá se tedy, že bude
+        obsahovat odpovídající částky v elementu <tag>NonTaxedDeposits</tag>.</para>
+    </section>
+    <section>
+      <title>Vizuální podoba dokumentu</title>
+      <para>Je-li součástí dokumentu ISDOC reprezentovaného jako archiv
+          (<filename>.isdocx</filename>) také jeho vizuální podoba, doporučuje se pro ni použít
+        formát PDF. Lze použít i další formáty ukládající vizuální podobu dokumentu (např. HTML,
+        formáty MS Word, MS Excel, obrázky JPEG, GIF, PNG, BMP, atd.). Musí však platit, že příloha
+        označená jako „vizuální podoba dokumentu“, musí být skutečně jeho vizuální podoba. Záměr je
+        mít pouze jednu vizuální podobu dokumentu, a proto v elementu <tag>SupplementsList</tag>
+        může být pouze jediný element <tag>Supplement</tag> s atributem
+        <code>preview="true"</code>.</para>
+    </section>    
+  </appendix>
+  <appendix xml:id="schematron" xml:base="isdoc.xml">
+    <title>Schéma pro kontrolu vybraných pravidel – <filename condition="html" xlink:href="../sch/isdoc-6.0.2.sch">isdoc-6.0.2.sch</filename><filename condition="print">isdoc-6.0.2.sch</filename></title>
+    <programlisting role="small" language="xml"><textobject><textdata fileref="../sch/isdoc-6.0.2.sch" encoding="utf-8"/></textobject></programlisting>    
+  </appendix>
+  <bibliography>
+    <title>Reference</title>
+    <bibliomixed xml:id="bib.cba29" xml:base="changelog-cs.xml"><abbrev>ČBA-STD-29</abbrev><title>Standard elektronické fakturace – Popis rozhraní pro zasílání
+      e-faktur a e-dokumentů koncovým spotřebitelům do aplikací elektronického bankovnictví</title>.
+      2014. Česká bankovní asociace.
+    </bibliomixed>
+  </bibliography>
+  
+</article>

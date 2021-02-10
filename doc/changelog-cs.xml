@@ -1,0 +1,75 @@
+<appendix xml:id="chagelog" xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="cs">
+  <title>Změny oproti předchozím verzím</title>
+  <section revision="6.1">
+      <title>Změny oproti verzi 6.0.X z X.Y.2013</title>
+      <itemizedlist>
+          <listitem>
+              <para>Přidán nový typ dokumentu pro objednávky (element <tag>Order</tag>).</para>
+          </listitem>
+      </itemizedlist>
+  </section>
+  <section>
+    <title>Změny oproti verzi 6.0.1 z 26.5.2014</title>
+    <itemizedlist>
+      <listitem>
+        <para>Vylepšení popisu některých elementů.</para>
+      </listitem>
+      <listitem>
+        <para>Schéma kontroluje unikátnost identifikátoru řádky dokladu.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+        <title>Změny oproti verzi 5.3.1 z 30.12.2011</title>
+        <itemizedlist>
+            <listitem>
+                <para>Změněn jmenný prostor na <uri>http://isdoc.cz/namespace/2013</uri></para>
+            </listitem>
+            <listitem>
+                <para>Odkazy na objednávky (<tag>OrderReference</tag>), dodací listy (<tag>DeliveryNoteReference</tag>) a
+                    původní doklady (<tag>OriginalDocumentReference</tag>) se uvádějí jen globálně pro celou fakturu. U řádky může již být jen odkaz, který pomocí atributu ref směřuje na existující globální
+                    odkaz identifikovaný pomocí atributu id. Nad hodnotami v atributech id a ref schéma
+                    kontroluje referenční integritu.</para>
+            </listitem>
+            <listitem>
+                <para>Elementy <tag>VATApplicable</tag> a <tag>ElectronicPossibilityAgreementReference</tag> jsou ve schématu povinné
+                    (povinné jsou již od verze 5.3, povinnost však nebyla formálně popsána ve schématu).</para>
+            </listitem>
+            <listitem>
+                <para>Upraveno pořadí podelementů uvnitř elementu <tag>TaxSubTotal</tag> tak, aby bylo konzistentní.</para>
+            </listitem>
+            <listitem>
+                <para>Element <tag>OriginalDocumentReference</tag> musí být vždy obalen v <tag>OriginalDocumentReferences</tag>.</para>
+            </listitem>
+            <listitem>
+                <para>Přidán element <tag>ClientBankAccount</tag> pro velké výstavce B2C faktur.</para>
+            </listitem>
+            <listitem>
+                <para>Přidány elementy <tag>SubDocumentType</tag> a  <tag>SubDocumentTypeOrigin</tag> pro jemnější klasifikaci dokumentů.</para>
+            </listitem>            
+            <listitem>
+                <para>Přidány elementy <tag>EgovFlag</tag>, <tag>FileReference</tag>, <tag>ReferenceNumber</tag>, <tag>ISDS_ID</tag>,
+                    <tag>EgovClassifiers</tag>, <tag>EgovClassifier</tag>, <tag>ContractReferences</tag>, <tag>ContractReference</tag>,
+                    <tag>LastValidDate</tag>, <tag>LastValidDateUnbounded</tag>, <tag>ExternalOrderIssueDate</tag>, <tag>ParagraphID</tag>,
+                    <tag>SealSeriesID</tag>.</para>
+            </listitem>
+            <listitem>
+                <para>K elementu <tag>Payment</tag> byl přidán nový atribut partialPayment, který může být použit k zakázání částečných plateb.</para>
+            </listitem>
+            <listitem>
+                <para>Pořadí elementů uvnitř elementu <tag>Invoice</tag> bylo upraveno.</para>
+            </listitem>
+            <listitem>
+                <para>Element <tag>PartyTaxScheme</tag> se může opakovat a u subjektu lze zadat více jeho identifikátorů (např. zároveň DIČ a IČ DPH pro slovenské společnosti).</para>
+            </listitem>
+            <listitem>
+                <para>Do archivu (<filename>.isdocx</filename>) byla přidána povinnost používat
+                    manifest. Manifest je soubor určující, který soubor ISDOC z mnoha v archivu
+                    existujících je hlavní. Všechny ostatní jsou pak jen v pozici přílohy.</para>
+            </listitem>
+            <listitem>
+                <para>Přidán nový typ dokumentu neplatební dokument (element <tag>CommonDocument</tag>).</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+</appendix>

@@ -1,0 +1,72 @@
+<appendix xml:id="chagelog" xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en">
+  <title>Changelog</title>
+  <section revision="6.1">
+      <title>Changes since version 6.0.X from 2013-Y-X</title>
+      <itemizedlist>
+          <listitem>
+              <para>Added new document type for orders (<tag>Order</tag> element).</para>
+          </listitem>
+      </itemizedlist>
+  </section>
+  <section>
+    <title>Changes since version 6.0.1 from 2014-05-26</title>
+    <itemizedlist>
+      <listitem>
+        <para>Description of some elements was improved.</para>
+      </listitem>
+      <listitem>
+        <para>Schema now enforces uniqueness of line identifier.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+        <title>Changes since version 5.3.1 from 2011-12-30</title>
+        <itemizedlist>
+            <listitem>
+                <para>Namespace changed to <uri>http://isdoc.cz/namespace/2013</uri></para>
+            </listitem>
+            <listitem>
+                <para>References to orders (OrderReference), delivery notes (DeliveryNoteReference) and
+                    original documents (OriginalDocumentReference) are listed only globally. Line can contain reference (using ref attribute) to such globally defined reference identified by id attribute. Integrity between id and ref attribute values is checked by the schema.</para>
+            </listitem>
+            <listitem>
+                <para>Elements <tag>VATApplicable</tag> and <tag>ElectronicPossibilityAgreementReference</tag> are now mandatory in the schema
+                    (they are mandatory since version 5.3, but this was not formalized in the schema).</para>
+            </listitem>
+            <listitem>
+                <para>Order of <tag>TaxSubTotal</tag> subelements is more consistent now.</para>
+            </listitem>
+           
+            <listitem>
+                <para>OriginalDocumentReference element must be always enclosed in OriginalDocumentReferences element.</para>
+            </listitem>
+            <listitem>
+                <para>Added ClientBankAccount element for large issuers of B2C invoices.</para>
+            </listitem>
+            <listitem>
+                <para>Added SubDocumentType and SubDocumentTypeOrigin elements.</para>
+            </listitem>            
+            <listitem>
+                <para>Added the following elements: EgovFlag, FileReference, ReferenceNumber, ISDS_ID,
+                    EgovClassifiers, EgovClassifier, ContractReferences, ContractReference,
+                    LastValidDate, LastValidDateUnbounded, ExternalOrderIssueDate, ParagraphID,
+                    SealSeriesID.</para>
+            </listitem>
+            <listitem>
+                <para>Added new partialPayment attribute to Payment element. This attribute can be used for specifying that partial payment is not allowed.</para>
+            </listitem>
+            <listitem>
+                <para>Element order inside <tag>Invoice</tag> was changed.</para>
+            </listitem>
+            <listitem>
+                <para><tag>PartyTaxScheme</tag> element can be repeated when subject has several identifiers.</para>
+            </listitem>            
+            <listitem>
+                <para>ISDOC archives (<filename>.isdocx</filename>) must use manifest.</para>
+            </listitem>            
+            <listitem>
+                <para>Added new document type for nonpayment documents (<tag>CommonDocument</tag> element).</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+</appendix>

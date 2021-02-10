@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+  version="5.0" xml:lang="cs">
+  <info>
+    <title>ISDOC – obchodní pravidla a implementační poznámky<!--@VERSION@--></title>
+    <copyright>
+      <year>2014</year>
+      <holder>ICT UNIE o.s.</holder>
+    </copyright>
+    <pubdate><?dbtimestamp padding="0"?></pubdate>
+  </info>
+  <para>Tento dokument shrnuje pravidla kladená na dokumenty vyhovující standardu <link
+      xlink:href="http://isdoc.cz/">ISDOC</link>, která nejsou zachytitelná v podobě XML schématu.
+    Rovněž obsahuje pravidla a poznámky, které jsou vodítkem pro korektní implementaci producentů a
+    konzumentů dokumentů ISDOC. V budoucnu může být přímo začleněn do standardu ISDOC.</para>
+  <xi:include href="isdoc.xml" xpointer="pravidla" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="isdoc.xml" xpointer="poznamky" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="isdoc.xml" xpointer="schematron" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <bibliography>
+    <title>Reference</title>
+    <xi:include href="isdoc.xml" xpointer="bib.cba29" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  </bibliography>
+  
+</article>

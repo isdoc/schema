@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0" xml:lang="cs">
+    <info>
+        <title>ISDOC – Národní standard pro elektronickou fakturaci</title>
+        <subtitle>Verze @VERSION@ z @DATE@</subtitle>
+        <copyright>
+            <year>2014</year>
+            <holder>ICT UNIE o.s.</holder>
+        </copyright>
+    </info>
+    <para>Přiložený standard a schémata formálně definují výměnný formát daňových dokladů a
+        dalších typů dokumentů definovaný Pracovní skupinou pro elektronické standardy výměny dat sdružení ICT
+        Unie o.s. (<link xlink:href="http://www.isdoc.cz">www.isdoc.cz</link>).</para>
+    <para>Dotazy posílejte na <email>info@isdoc.cz</email>.</para>
+    <section>
+        <title>Obsah distribuce</title>
+        <variablelist>
+            <varlistentry>
+                <term><filename>doc/</filename></term>
+                <listitem>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="doc/isdoc.pdf">isdoc.pdf</filename></term>
+                            <listitem>
+                                <para>Standard ISDOC @VERSION@</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="doc/isdoc.html">isdoc.html</filename></term>
+                            <listitem>
+                                <para>HTML verze standardu</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>xsd/</filename></term>
+                <listitem>
+                    <para>Schémata v jazyce W3C XML Schema</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-invoice-@VERSION@.xsd"
+                                    >isdoc-invoice-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Základní schéma daňového dokladu</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-invoice-dsig-@VERSION@.xsd"
+                                >isdoc-invoice-dsig-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Schéma validující i strukturu vloženého digitálního podpisu</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="xsd/isdoc-order-@VERSION@.xsd"
+                                >isdoc-order-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Základní schéma objednávky</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="xsd/isdoc-order-dsig-@VERSION@.xsd"
+                                >isdoc-order-dsig-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Schéma validující i strukturu vloženého digitálního podpisu</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-commondocument-@VERSION@.xsd"
+                                >isdoc-commondocument-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Základní schéma neplatebního bankovního dokladu</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-commondocument-dsig-@VERSION@.xsd"
+                                >isdoc-commondocument-dsig-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Schéma validující i strukturu vloženého digitálního podpisu</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/xmldsig-core-schema.xsd"
+                                >xmldsig-core-schema.xsd</filename></term>
+                            <listitem>
+                                <para>Schéma XML
+                                    Signature</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="xsd/isdoc-manifest-@VERSION@.xsd"
+                                >isdoc-manifest-@VERSION@.xsd</filename></term>
+                            <listitem>
+                                <para>Schéma pro manifest ISDOC archivů.</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>sch/</filename></term>
+                <listitem>
+                    <para>Schematron schéma pro kontrolu pravidel</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="sch/isdoc-@VERSION@.sch"
+                                >isdoc-@VERSION@.sch</filename></term>
+                            <listitem>
+                                <para>Kontrola vybraných pravidel pomocí Schematronu</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>doc-cs/</filename></term>
+                <listitem>
+                    <para>Hypertextová dokumentace W3C XML Schematu s českými komentáři</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-cs/isdoc-invoice-@VERSION@.html">isdoc-invoice-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Dokumentace pro daňový doklad</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-cs/isdoc-commondocument-@VERSION@.html">isdoc-commondocument-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Dokumentace pro neplatební bankovní dokument</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="doc-cs/isdoc-order-@VERSION@.html">isdoc-order-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Dokumentace pro objednávku</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>doc-en/</filename></term>
+                <listitem>
+                    <para>Hypertextová dokumentace W3C XML Schematu s anglickými komentáři</para>
+                    <variablelist>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-en/isdoc-invoice-@VERSION@.html">isdoc-invoice-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Dokumentace pro daňový doklad</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><filename xlink:href="doc-en/isdoc-commondocument-@VERSION@.html">isdoc-commondocument-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Dokumentace pro neplatební bankovní dokument</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry revision="6.1">
+                            <term><filename xlink:href="doc-en/isdoc-order-@VERSION@.html">isdoc-order-@VERSION@.html</filename></term>
+                            <listitem>
+                                <para>Dokumentace pro objednávku</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term><filename>examples/</filename></term>
+                <listitem><para>Ukázkové dokumenty ISDOC.</para>
+                    <remark>FIXME: Doplnit další příklady (eGov, digitální podpis, časové razítko).</remark>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+    <xi:include href="changelog-cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>    
+ </article>
