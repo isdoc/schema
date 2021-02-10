@@ -1,5 +1,6 @@
 *.zip
-out
-temp
-doc-cs
-doc-en
+out/**
+xsd/**
+temp/**
+doc-cs/**
+doc-en/**
