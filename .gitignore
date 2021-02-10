@@ -1,6 +1,9 @@
+**~
 *.zip
 out/**
 xsd/**
+sch/**
 temp/**
 doc-cs/**
 doc-en/**
+*.html

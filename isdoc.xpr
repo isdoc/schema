@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="16.0">
+<project version="22.0">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="16.0" xml:space="preserve">
+            <serialized version="22.0" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>document.types</String>
@@ -39,6 +39,9 @@
                                         <field name="mergeCSSsFromDocument">
                                             <Boolean>false</Boolean>
                                         </field>
+                                        <field name="multipleAlternateSelectionEnabled">
+                                            <Boolean>false</Boolean>
+                                        </field>
                                         <field name="actionDescriptors">
                                             <action-array/>
                                         </field>
@@ -56,6 +59,9 @@
                                                 <field name="menuEntriesDescriptorList">
                                                     <menuEntry-array/>
                                                 </field>
+                                                <field name="context">
+                                                    <null/>
+                                                </field>
                                             </menu>
                                         </field>
                                         <field name="popupMenuDescriptor">
@@ -71,6 +77,9 @@
                                                 </field>
                                                 <field name="menuEntriesDescriptorList">
                                                     <menuEntry-array/>
+                                                </field>
+                                                <field name="context">
+                                                    <null/>
                                                 </field>
                                             </menu>
                                         </field>
@@ -109,16 +118,28 @@
                                         <field name="tableSupportClassName">
                                             <null/>
                                         </field>
+                                        <field name="tableCellSeparatorSupportClassName">
+                                            <null/>
+                                        </field>
                                         <field name="tableColWidthSupportClassName">
                                             <null/>
                                         </field>
                                         <field name="customReferencesResolver">
                                             <null/>
                                         </field>
+                                        <field name="editPropertiesHandler">
+                                            <null/>
+                                        </field>
                                         <field name="authorExtensionStateListener">
                                             <null/>
                                         </field>
                                         <field name="attributesRecognizer">
+                                            <null/>
+                                        </field>
+                                        <field name="authorActionEventHandler">
+                                            <null/>
+                                        </field>
+                                        <field name="authorImageDecorator">
                                             <null/>
                                         </field>
                                     </authorExtension>
@@ -214,6 +235,9 @@
                                     <null/>
                                 </field>
                                 <field name="customAttributeValueEditor">
+                                    <null/>
+                                </field>
+                                <field name="textModeExternalObjectInsertionHandler">
                                     <null/>
                                 </field>
                             </documentTypeDescriptor>
@@ -597,6 +621,26 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>build.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>ANT - with Resolver</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>ANT</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>../podklady/test/test.xml</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -607,6 +651,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -624,6 +673,11 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -637,6 +691,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -654,6 +713,11 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -667,6 +731,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>ANT</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -684,6 +753,11 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -697,6 +771,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -714,6 +793,11 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -727,6 +811,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -744,6 +833,11 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -757,6 +851,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -774,6 +873,11 @@
                                         <String>XML</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -787,6 +891,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -804,6 +913,11 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -817,6 +931,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -834,6 +953,11 @@
                                         <String>XML</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -847,6 +971,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -864,6 +993,11 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -877,6 +1011,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -894,6 +1033,11 @@
                                         <String>XML</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -909,19 +1053,9 @@
                                         <String>XSL</String>
                                     </list>
                                 </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>file:/C:/xslt2intro/src/clanek.xml</String>
-                                </field>
-                                <field name="scenarioIds">
+                                <field name="scenarioStorageLocations">
                                     <list>
-                                        <String>xml-stylesheet processing instruction</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -973,8 +1107,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>true</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>${cfd}/${cfn}.html</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1022,6 +1156,9 @@
                                             <field name="hasXPathValue">
                                                 <Boolean>false</Boolean>
                                             </field>
+                                            <field name="isStatic">
+                                                <Boolean>false</Boolean>
+                                            </field>
                                         </transformationParameter>
                                         <transformationParameter>
                                             <field name="paramDescription">
@@ -1043,6 +1180,9 @@
                                             <field name="hasXPathValue">
                                                 <Boolean>false</Boolean>
                                             </field>
+                                            <field name="isStatic">
+                                                <Boolean>false</Boolean>
+                                            </field>
                                         </transformationParameter>
                                         <transformationParameter>
                                             <field name="paramDescription">
@@ -1062,6 +1202,9 @@
                                                 <String>file:///e:/src/db/xsl/highlighting/xslthl-config.xml</String>
                                             </field>
                                             <field name="hasXPathValue">
+                                                <Boolean>false</Boolean>
+                                            </field>
+                                            <field name="isStatic">
                                                 <Boolean>false</Boolean>
                                             </field>
                                         </transformationParameter>
@@ -1122,8 +1265,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>true</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>${cfd}/${cfn}-${date(yyyyMMdd)}.pdf</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1207,8 +1350,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>true</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>${cfd}/${cfn}.html</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1293,8 +1436,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>report.xml</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1376,8 +1519,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>E:/proj/spis/efaktura/schema/sch/isdoc-invoice-5.0-check-schematron-svrl.xsl</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1459,8 +1602,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>E:/proj/spis/efaktura/schema/sch/isdoc-invoice-5.0-check-schematron.xsl</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1542,8 +1685,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>${cfn}.augmented.xsd</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1625,8 +1768,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>E:/proj/urspraha/dbdemo/zwordu2007.xml</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1708,8 +1851,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>priklad-venetaian.xsd</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1719,89 +1862,6 @@
                                 </field>
                                 <field name="openInEditor">
                                     <Boolean>true</Boolean>
-                                </field>
-                                <field name="showInHTMLPane">
-                                    <Boolean>false</Boolean>
-                                </field>
-                                <field name="showInXMLPane">
-                                    <Boolean>false</Boolean>
-                                </field>
-                                <field name="showInSVGPane">
-                                    <Boolean>false</Boolean>
-                                </field>
-                                <field name="showInResultSetPane">
-                                    <Boolean>false</Boolean>
-                                </field>
-                                <field name="useXSLTInput">
-                                    <Boolean>true</Boolean>
-                                </field>
-                                <field name="xsltParams">
-                                    <list/>
-                                </field>
-                                <field name="cascadingStylesheets">
-                                    <String-array/>
-                                </field>
-                                <field name="xslTransformer">
-                                    <String>Saxon6.5.5</String>
-                                </field>
-                                <field name="extensionURLs">
-                                    <String-array/>
-                                </field>
-                            </scenario>
-                            <scenario>
-                                <field name="advancedOptionsMap">
-                                    <null/>
-                                </field>
-                                <field name="name">
-                                    <String>xml-stylesheet processing instruction</String>
-                                </field>
-                                <field name="baseURL">
-                                    <String>file:/E:/texts/skoleni/xslt2/src/citaty.xml</String>
-                                </field>
-                                <field name="footerURL">
-                                    <String></String>
-                                </field>
-                                <field name="fOPMethod">
-                                    <null/>
-                                </field>
-                                <field name="fOProcessorName">
-                                    <null/>
-                                </field>
-                                <field name="headerURL">
-                                    <String></String>
-                                </field>
-                                <field name="inputXSLURL">
-                                    <null/>
-                                </field>
-                                <field name="inputXMLURL">
-                                    <String>${currentFileURL}</String>
-                                </field>
-                                <field name="defaultScenario">
-                                    <Boolean>true</Boolean>
-                                </field>
-                                <field name="isFOPPerforming">
-                                    <Boolean>false</Boolean>
-                                </field>
-                                <field name="type">
-                                    <String>XSL</String>
-                                </field>
-                                <field name="saveAs">
-                                    <Boolean>true</Boolean>
-                                </field>
-                                <field name="openInBrowser">
-                                    <Boolean>true</Boolean>
-                                </field>
-                                <field name="outputFile">
-                                    <File>${cfd}/${cfn}.html</File>
-                                </field>
-                                <field name="openOtherLocationInBrowser">
-                                    <Boolean>false</Boolean>
-                                </field>
-                                <field name="locationToOpenInBrowserURL">
-                                    <String></String>
-                                </field>
-                                <field name="openInEditor">
-                                    <Boolean>false</Boolean>
                                 </field>
                                 <field name="showInHTMLPane">
                                     <Boolean>false</Boolean>
@@ -1874,8 +1934,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>out.xml</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -1909,6 +1969,89 @@
                                 </field>
                                 <field name="xslTransformer">
                                     <String>.NET 2.0</String>
+                                </field>
+                                <field name="extensionURLs">
+                                    <String-array/>
+                                </field>
+                            </scenario>
+                            <scenario>
+                                <field name="advancedOptionsMap">
+                                    <null/>
+                                </field>
+                                <field name="name">
+                                    <String>xml-stylesheet processing instruction</String>
+                                </field>
+                                <field name="baseURL">
+                                    <String>file:/E:/texts/skoleni/xslt2/src/citaty.xml</String>
+                                </field>
+                                <field name="footerURL">
+                                    <String></String>
+                                </field>
+                                <field name="fOPMethod">
+                                    <null/>
+                                </field>
+                                <field name="fOProcessorName">
+                                    <null/>
+                                </field>
+                                <field name="headerURL">
+                                    <String></String>
+                                </field>
+                                <field name="inputXSLURL">
+                                    <null/>
+                                </field>
+                                <field name="inputXMLURL">
+                                    <String>${currentFileURL}</String>
+                                </field>
+                                <field name="defaultScenario">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="isFOPPerforming">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="type">
+                                    <String>XSL</String>
+                                </field>
+                                <field name="saveAs">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="openInBrowser">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="outputResource">
+                                    <null/>
+                                </field>
+                                <field name="openOtherLocationInBrowser">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="locationToOpenInBrowserURL">
+                                    <String></String>
+                                </field>
+                                <field name="openInEditor">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInHTMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInXMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInSVGPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInResultSetPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="useXSLTInput">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="xsltParams">
+                                    <list/>
+                                </field>
+                                <field name="cascadingStylesheets">
+                                    <String-array/>
+                                </field>
+                                <field name="xslTransformer">
+                                    <String>Saxon6.5.5</String>
                                 </field>
                                 <field name="extensionURLs">
                                     <String-array/>
@@ -1990,7 +2133,7 @@
                                 <field name="openInBrowser">
                                     <Boolean>true</Boolean>
                                 </field>
-                                <field name="outputFile">
+                                <field name="outputResource">
                                     <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
@@ -2037,6 +2180,124 @@
                                     </String-array>
                                 </field>
                             </antScenario>
+                            <antScenario>
+                                <field name="additionalAntArgs">
+                                    <String></String>
+                                </field>
+                                <field name="buildTarget">
+                                    <String></String>
+                                </field>
+                                <field name="buildFilePath">
+                                    <String>${cfne}</String>
+                                </field>
+                                <field name="ditaParams">
+                                    <list/>
+                                </field>
+                                <field name="jvmArgs">
+                                    <String>-Xmx256m</String>
+                                </field>
+                                <field name="useCustomJavaHome">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="customJavaHomeDir">
+                                    <String></String>
+                                </field>
+                                <field name="useCustomANTHome">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="customANTHomeDir">
+                                    <String></String>
+                                </field>
+                                <field name="workingDir">
+                                    <String>${cfd}</String>
+                                </field>
+                                <field name="showConsoleAlways">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="advancedOptionsMap">
+                                    <null/>
+                                </field>
+                                <field name="name">
+                                    <String>ANT - with Resolver</String>
+                                </field>
+                                <field name="baseURL">
+                                    <null/>
+                                </field>
+                                <field name="footerURL">
+                                    <null/>
+                                </field>
+                                <field name="fOPMethod">
+                                    <null/>
+                                </field>
+                                <field name="fOProcessorName">
+                                    <null/>
+                                </field>
+                                <field name="headerURL">
+                                    <null/>
+                                </field>
+                                <field name="inputXSLURL">
+                                    <null/>
+                                </field>
+                                <field name="inputXMLURL">
+                                    <null/>
+                                </field>
+                                <field name="defaultScenario">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="isFOPPerforming">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="type">
+                                    <String>ANT</String>
+                                </field>
+                                <field name="saveAs">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="openInBrowser">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="outputResource">
+                                    <null/>
+                                </field>
+                                <field name="openOtherLocationInBrowser">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="locationToOpenInBrowserURL">
+                                    <String></String>
+                                </field>
+                                <field name="openInEditor">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInHTMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInXMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInSVGPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInResultSetPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="useXSLTInput">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="xsltParams">
+                                    <list/>
+                                </field>
+                                <field name="cascadingStylesheets">
+                                    <String-array/>
+                                </field>
+                                <field name="xslTransformer">
+                                    <String>ANT</String>
+                                </field>
+                                <field name="extensionURLs">
+                                    <String-array>
+                                        <String>${pdu}/lib/resolver.jar</String>
+                                    </String-array>
+                                </field>
+                            </antScenario>
                             <scenario>
                                 <field name="advancedOptionsMap">
                                     <null/>
@@ -2080,8 +2341,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>slozene.xml</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -2163,8 +2424,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>isdoc-invoice-5.x.xsd</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -2246,8 +2507,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>true</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>translation.html</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -2329,8 +2590,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>report.xml</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -2412,8 +2673,8 @@
                                 <field name="openInBrowser">
                                     <Boolean>true</Boolean>
                                 </field>
-                                <field name="outputFile">
-                                    <File>E:/proj/spis/efaktura/schema/xsd/isdoc-invoice-5.2-cs.xsd</File>
+                                <field name="outputResource">
+                                    <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
                                     <Boolean>false</Boolean>
@@ -2495,7 +2756,7 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
+                                <field name="outputResource">
                                     <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
@@ -2578,7 +2839,7 @@
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
                                 </field>
-                                <field name="outputFile">
+                                <field name="outputResource">
                                     <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
@@ -2640,6 +2901,9 @@
                                     <list>
                                         <String>Validation_scenario</String>
                                     </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list/>
                                 </field>
                             </scenarioAssociation>
                         </scenarioAssociation-array>
