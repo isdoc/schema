@@ -9,6 +9,9 @@
       <listitem>
         <para>Schema now enforces uniqueness of line identifier.</para>
       </listitem>
+      <listitem>
+        <para>Clarified details about time stamping.</para>
+      </listitem>
     </itemizedlist>
   </section>
   <section>
