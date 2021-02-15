@@ -572,14 +572,15 @@
           </footnote></para>
       </listitem>
       <listitem>
-        <para>Autoritě časového razítka se posílá otisk hodnoty digitálního podpisu z elementu
-            <tag>SignatureValue</tag>.<footnote>
-            <para>Otisk se přitom počítá z binární reprezentace hodnoty digitálního podpisu nikoli z textového obsahu elementu, který binární data obsahuje až po zakódování metodou
-              base64.</para>
-          </footnote> Pro výpočet otisku musí být použit algoritmus z rodiny SHA-2.<footnote>
-            <para>V současné době většina autorit časového razítka v ČR podporuje pouze algoritmus
-              SHA-256.</para>
-          </footnote></para>
+        <para>Autoritě časového razítka se posílá otisk hodnoty digitálního podpisu v elementu
+              <tag>SignatureValue</tag>.<footnote>
+              <para>Otisk se přitom počítá z textového obsahu elementu <tag>SignatureValue</tag>
+                nikoliv z binární reprezentace hodnoty digitálního podpisu. Před výpočtem otisku se
+                ještě provádí kanonizace.</para>
+            </footnote> Pro výpočet otisku musí být použit algoritmus z rodiny SHA-2.<footnote>
+              <para>V současné době většina autorit časového razítka v ČR podporuje pouze algoritmus
+                SHA-256.</para>
+            </footnote></para>
       </listitem>
       <listitem>
         <para>Časové razítko obdržené od autority časového razítka musí být uloženo v elementu
