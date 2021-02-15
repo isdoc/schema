@@ -1,13 +1,5 @@
 <appendix xml:id="chagelog" xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="cs">
   <title>Změny oproti předchozím verzím</title>
-  <section revision="6.1">
-      <title>Změny oproti verzi 6.0.X z X.Y.2013</title>
-      <itemizedlist>
-          <listitem>
-              <para>Přidán nový typ dokumentu pro objednávky (element <tag>Order</tag>).</para>
-          </listitem>
-      </itemizedlist>
-  </section>
   <section>
     <title>Změny oproti verzi 6.0.1 z 26.5.2014</title>
     <itemizedlist>

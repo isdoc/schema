@@ -1,13 +1,5 @@
 <appendix xml:id="chagelog" xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en">
   <title>Changelog</title>
-  <section revision="6.1">
-      <title>Changes since version 6.0.X from 2013-Y-X</title>
-      <itemizedlist>
-          <listitem>
-              <para>Added new document type for orders (<tag>Order</tag> element).</para>
-          </listitem>
-      </itemizedlist>
-  </section>
   <section>
     <title>Changes since version 6.0.1 from 2014-05-26</title>
     <itemizedlist>
