@@ -585,14 +585,7 @@
         <para>Časové razítko obdržené od autority časového razítka musí být uloženo v elementu
               <tag>EncapsulatedTimeStamp</tag> ve formátu ASN.1 zakódovaném v DER a následně pomocí
             base64. Časové razítko musí vyhovovat formátu definovanému produkčním pravidlem
-              <literal>TimeStampResp</literal> dle <xref linkend="bib.rfc3161"/>. Časové razítko
-            musí vždy obsahovat položku <literal>timeStampToken</literal>.<footnote>
-              <para>Položka <literal>timeStampToken</literal> je vyžadována, protože ve své části
-                  <literal>messageImprint</literal> obsahuje položku
-                  <literal>hashAlgorithm</literal> identifikující algoritmus použitý pro výpočet
-                otisku. Znalost tohoto algoritmu je důležitá při následném ověřování časového
-                razítka.</para>
-            </footnote></para>
+              <literal>TimeStampToken</literal> dle <xref linkend="bib.rfc3161"/>.</para>
       </listitem>
     </orderedlist>
     <example>
