@@ -135,19 +135,26 @@
   </section>
   <section xml:id="reprezentace">
     <title>Reprezentace dokumentu</title>
-    <para>Dokument ISDOC musí být reprezentován jako samostatný dokument XML nebo jako archiv. Pro
-      samostatné dokumenty je doporučeno používat příponu <filename>.isdoc</filename> a pro archivy
-        <filename>.isdocx</filename>.</para>
+    <para>Dokument ISDOC musí být reprezentován jako samostatný dokument XML, jako PDF/A-3 dokument
+      (tzv ISDOC.PDF) nebo jako archiv. Pro samostatné dokumenty je doporučeno používat příponu
+        <filename>.isdoc</filename> a pro archivy <filename>.isdocx</filename>. Jméno dokumentů
+      ISDOC.PDF by mělo být zakončeno řetězcem <filename>-isdoc.pdf</filename>.</para>
     <note>
       <para>Samostatný dokument je preferovaná forma pro výměnu dokumentů ISDOC. Je vhodná například
         při komunikace pomocí webových služeb či pro zasílání dokumentů pomocí elektronické pošty
         nebo datových schránek. Reprezentace pomocí archivu je vhodná v případech, kdy chceme kromě
-        samotného dokladu přenášet i další související přílohy jako jeden celek.</para>
+        samotného dokladu přenášet i další související přílohy jako jeden celek. Reprezentace
+        ISDOC.PDF je vhodná v případě, kdy chceme příjemci dokladu umožnit snadnou vizuální kontrolu
+        a přitom zachovat možnost strojového zpracování.</para>
     </note>
     <section xml:id="reprezentace-xml">
       <title>Dokument XML</title>
       <para>ISDOC musí být well-formed dokument XML tak jak definuje specifikace <xref
           linkend="bib.xml"/> a musí být uložen v kódování UTF-8.</para>
+    </section>
+    <section xml:id="reprezentace-isdoc.pdf">
+      <title>ISDOC.PDF</title>
+      <para/>
     </section>
     <section xml:id="archiv">
       <title>Archiv</title>
