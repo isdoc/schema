@@ -136,7 +136,7 @@
   <section xml:id="reprezentace">
     <title>Reprezentace dokumentu</title>
     <para>Dokument ISDOC musí být reprezentován jako samostatný dokument XML, jako PDF/A-3 dokument
-      (tzv ISDOC.PDF) nebo jako archiv. Pro samostatné dokumenty je doporučeno používat příponu
+      (tzv. ISDOC.PDF) nebo jako archiv. Pro samostatné dokumenty je doporučeno používat příponu
         <filename>.isdoc</filename> a pro archivy <filename>.isdocx</filename>. Jméno dokumentů
       ISDOC.PDF by mělo být zakončeno řetězcem <filename>-isdoc.pdf</filename>.</para>
     <note>
@@ -581,9 +581,9 @@
       <listitem>
         <para>Autoritě časového razítka se posílá otisk hodnoty digitálního podpisu v elementu
               <tag>SignatureValue</tag>.<footnote>
-              <para>Otisk se přitom počítá z textového obsahu elementu <tag>SignatureValue</tag>
+              <para>Otisk se přitom počítá z elementu <tag>SignatureValue</tag> včetně jeho obsahu
                 nikoliv z binární reprezentace hodnoty digitálního podpisu. Před výpočtem otisku se
-                ještě provádí kanonizace.</para>
+                ještě provádí kanonizace. Viz sekce 7.3 <xref linkend="bib.xades"/>.</para>
             </footnote> Pro výpočet otisku musí být použit algoritmus z rodiny SHA-2.<footnote>
               <para>V současné době většina autorit časového razítka v ČR podporuje pouze algoritmus
                 SHA-256.</para>
