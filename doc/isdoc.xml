@@ -154,7 +154,32 @@
     </section>
     <section xml:id="reprezentace-isdoc.pdf">
       <title>ISDOC.PDF</title>
-      <para/>
+      <para>ISDOC.PDF dokument musí splňovat všechny požadavky formátu PDF/A-3a, tak jak je definuje
+          <xref linkend="bib.iso19005-3"/>, a navíc musí dodržet všechny následující
+        požadavky:</para>
+      <remark>Není požadavek na PDF/A-3a moc striktní, nestačilo by PDF/A-3u, aby to bylo snazší pro
+        implementátory?</remark>
+      <orderedlist>
+        <listitem>
+          <para>Do ISDOC.PDF dokumentu je vložen dokument ISDOC využívající XML reprezentaci (<xref
+              linkend="reprezentace-xml"/>). Vložený dokument musí být pojmenovaný
+              <filename>invoice.isdoc</filename>.</para>
+        </listitem>
+        <listitem>
+          <para>Pokud je příjemcem dokumentu veřejná správa, je do ISDOC.PDF dokumentu vložen soubor
+            pojmenovaný <filename>metadata-invoice-nsessl.xml</filename>, který obsahuje metadata
+            nezbytná pro automatický příjem dokumentu do elektronické spisové služby. Obsah souboru
+            s metadaty musí splňovat požadavky definované v [<remark>Asi bude praktické mít formát
+              metadat popsaný v samostatném standardu MVČR.</remark>].</para>
+        </listitem>
+        <listitem>
+          <para>Dokument ISDOC.PDF může obsahovat další vložené dokumenty a soubory.</para>
+        </listitem>
+      </orderedlist>
+      <section>
+        <title>Vložené soubory</title>
+        <para>….</para>
+      </section>
     </section>
     <section xml:id="archiv">
       <title>Archiv</title>
@@ -1156,6 +1181,9 @@
     <bibliomixed xml:id="bib.rfc4051"><abbrev>RFC4051</abbrev><title>Additional XML Security Uniform
         Resource Identifiers (URIs).</title> April 2005. IETF. Dostupné na URL: <bibliomisc><link
           xlink:href="http://www.ietf.org/rfc/rfc4051.txt"/></bibliomisc></bibliomixed>
+    <bibliomixed xml:id="bib.iso19005-3"><abbrev>ISO 19005-3</abbrev><title>Document management – Electronic 
+      document file format for long-term preservation – Part 3: Use of ISO 32000-1 with support for 
+      embedded files (PDF/A-3).</title> 2012. ISO. Dostupné na URL: <bibliomisc><link xlink:href="https://www.iso.org/standard/57229.html"/></bibliomisc></bibliomixed>
     <bibliomixed xml:id="bib.xml"><abbrev>XML</abbrev><title>Extensible Markup Language (XML) 1.0
         (Fifth Edition).</title> W3C Recommendation. 26 November 2008. W3C. Dostupné na URL:
           <bibliomisc><link xlink:href="http://www.w3.org/TR/REC-xml/"/></bibliomisc></bibliomixed>
