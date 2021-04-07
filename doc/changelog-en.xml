@@ -4,6 +4,9 @@
     <title>Changes since version 6.0.1 from 2014-05-26</title>
     <itemizedlist>
       <listitem>
+        <para>Added a new document representation ISDOC.PDF that allows embedding of ISDOC into PDF/A-3 format.</para>
+      </listitem>      
+      <listitem>
         <para>Description of some elements was improved.</para>
       </listitem>
       <listitem>

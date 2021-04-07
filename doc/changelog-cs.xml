@@ -4,6 +4,9 @@
     <title>Změny oproti verzi 6.0.1 z 26.5.2014</title>
     <itemizedlist>
       <listitem>
+        <para>Přidána nová reprezentace dokumentu ISDOC.PDF, kdy je dokument ISDOC vložen do formátu PDF/A-3.</para>
+      </listitem>
+      <listitem>
         <para>Vylepšení popisu některých elementů.</para>
       </listitem>
       <listitem>
