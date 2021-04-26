@@ -64,7 +64,7 @@ article toc
 <xsl:param name="email.delimiters.enabled" select="0"/>
 
 <xsl:param name="header.column.widths" select="'1 4 1'"/>
-<xsl:param name="footer.column.widths" select="'10 1 10'"/>
+<xsl:param name="footer.column.widths" select="'10 1 1'"/>
 
 <xsl:attribute-set name="footer.content.properties">
   <xsl:attribute name="font-size">9pt</xsl:attribute>
@@ -336,6 +336,7 @@ article toc
       <xsl:apply-templates select="d:holder"/>
     </xsl:if>
   </fo:inline>
+  <xsl:if test="following-sibling::*[1]/self::d:copyright"> – </xsl:if>
 </xsl:template> 
 
 <xsl:template match="d:year">
