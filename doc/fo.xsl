@@ -177,13 +177,9 @@ article toc
   </xsl:attribute>
 </xsl:attribute-set>
 
-<!-- <xsl:template name="table.cell.properties"> -->
-<!--   <xsl:attribute name="keep-together">always</xsl:attribute> -->
-<!--   <xsl:attribute name="text-align">start</xsl:attribute> -->
-<!--   <xsl:if test="@role='nohyph'"> -->
-<!--     <xsl:attribute name="hyphenate">false</xsl:attribute> -->
-<!--   </xsl:if> -->
-<!-- </xsl:template> -->
+<xsl:attribute-set name="table.cell.padding">
+  <xsl:attribute name="keep-together.within-page">always</xsl:attribute>
+</xsl:attribute-set>
 
 <xsl:attribute-set name="admonition.properties">
   <xsl:attribute name="font-size">80%</xsl:attribute>
