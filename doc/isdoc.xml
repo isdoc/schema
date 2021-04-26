@@ -28,7 +28,7 @@
     <title>Úvod</title>
     <para>Tento dokument definuje formáty pro elektronickou fakturaci souhrnně označované zkratkou
       ISDOC. Formát byl původně definován pracovní skupinou pro elektronické standardy výměny dat
-        <link xlink:href="http://www.ictu.cz/">ICT Unie o.s.</link>. Nyní se o další rozvoj a údržbu
+        <link xlink:href="http://www.ictu.cz/">ICT Unie o.s.</link>. Nyní se o další rozvoj a údržbu
       formátu stará Ministerstvo vnitra České Republiky. Veškeré připomínky a dotazy k formátu a
       jeho specifikaci zasílejte na adresu <email>info@isdoc.cz</email>.</para>
     <para>V současné verzi ISDOC definuje formát pro fakturu a neplatební dokument, v dalších
@@ -150,11 +150,12 @@
       ISDOC.PDF by mělo být zakončeno řetězcem <filename>-isdoc.pdf</filename>.</para>
     <note>
       <para>Samostatný dokument je preferovaná forma pro výměnu dokumentů ISDOC. Je vhodná například
-        při komunikace pomocí webových služeb či pro zasílání dokumentů pomocí elektronické pošty
+        při komunikaci pomocí webových služeb či pro zasílání dokumentů pomocí elektronické pošty
         nebo datových schránek. Reprezentace pomocí archivu je vhodná v případech, kdy chceme kromě
         samotného dokladu přenášet i další související přílohy jako jeden celek. Reprezentace
-        ISDOC.PDF je vhodná v případě, kdy chceme příjemci dokladu umožnit snadnou vizuální kontrolu
-        a přitom zachovat možnost strojového zpracování.</para>
+        ISDOC.PDF je vhodná v případě, kdy chceme příjemci dokladu umožnit snadnou vizuální kontrolu
+        a přitom zachovat možnost strojového zpracování. ISDOC.PDF dovoluje i přenos souvisejících
+        příloh.</para>
     </note>
     <section xml:id="reprezentace-xml">
       <title>Dokument XML</title>
@@ -164,7 +165,7 @@
     <section xml:id="reprezentace-isdoc.pdf">
       <title>ISDOC.PDF</title>
       <para>ISDOC.PDF dokument musí splňovat všechny požadavky formátu PDF/A-3a, tak jak je definuje
-          <xref linkend="bib.iso19005-3"/>, a navíc musí dodržet všechny následující
+          <xref linkend="bib.iso19005-3"/>, a navíc musí dodržet všechny následující
         požadavky:</para>
       <remark>Není požadavek na PDF/A-3a moc striktní, nestačilo by PDF/A-3u, aby to bylo snazší pro
         implementátory?</remark>
@@ -178,8 +179,8 @@
           <para>Pokud je příjemcem dokumentu veřejná správa, je do ISDOC.PDF dokumentu vložen soubor
             pojmenovaný <filename>metadata-invoice-nsessl.xml</filename>, který obsahuje metadata
             nezbytná pro automatický příjem dokumentu do elektronické spisové služby. Obsah souboru
-            s metadaty musí splňovat požadavky definované v [<remark>Asi bude praktické mít formát
-              metadat popsaný v samostatném standardu MVČR.</remark>].</para>
+            s metadaty musí splňovat požadavky definované v [<remark>Asi bude praktické mít formát
+              metadat popsaný v samostatném standardu MVČR.</remark>].</para>
         </listitem>
         <listitem>
           <para>Dokument ISDOC.PDF může obsahovat další vložené dokumenty a soubory.</para>
@@ -191,12 +192,12 @@
           slovník <emphasis>File Specification Dictionary</emphasis> (viz <xref
             linkend="bib.iso32000-1"/>, sekce 7.11.3). Ten přitom musí být odkazován pomocí položky
             <code>AF</code> ze slovníku <code>Catalog</code> (viz <xref linkend="bib.iso19005-3"/>,
-          příloha E.3). Zároveň musí být každý vložený soubor uveden i ve slovníku <emphasis>Name
+          příloha E.3). Zároveň musí být každý vložený soubor uveden i ve slovníku <emphasis>Name
             Dictionary</emphasis> (viz <xref linkend="bib.iso32000-1"/>, sekce 7.7.4) ve stromu jmen
           odkazovaném pomocí položky <code>EmbeddedFiles</code>. Tím se zajistí, že běžné prohlížeče
           PDF zobrazí vložené soubory jako přílohy.</para>
         <para>Pro každý vložený soubor musí odpovídající objekt slovníku obsahovat minimálně položky
-          uvedené v tabulce <xref linkend="tab.filespec-required"/>. </para>
+          uvedené v tabulce <xref linkend="tab.filespec-required"/>. </para>
         <table xml:id="tab.filespec-required">
           <title>Povinné položky ve slovníku popisujícím vložený soubor</title>
           <tgroup cols="2">
@@ -227,29 +228,29 @@
               <row>
                 <entry><code>/AFRelationship</code></entry>
                 <entry>
-                  <para>Popisuje vztah vloženého souboru k dokumentu PDF. Přípustné jsou následující
+                  <para>Popisuje vztah vloženého souboru k dokumentu PDF. Přípustné jsou následující
                     hodnoty:</para>
                   <variablelist>
                     <varlistentry>
                       <term><code>/Source</code></term>
                       <listitem>
-                        <para>Použije se, pokud bylo PDF vygenerováno přímo z ISDOC
+                        <para>Použije se, pokud bylo PDF vygenerováno přímo z ISDOC
                           dokumentu.</para>
                       </listitem>
                     </varlistentry>
                     <varlistentry>
                       <term><code>/Alternative</code></term>
                       <listitem>
-                        <para>Použije se, pokud PDF i dokument ISDOC byly vygenerovány nezávisle na
-                          sobě – např. z databáze nebo objektového modelu v aplikaci – a jedná se
-                          tak o alternativní reprezentace stejných dat, ale žádná z nich není
+                        <para>Použije se, pokud PDF i dokument ISDOC byly vygenerovány nezávisle na
+                          sobě – např. z databáze nebo objektového modelu v aplikaci – a jedná se
+                          tak o alternativní reprezentace stejných dat, ale žádná z nich není
                           primárním zdrojem dat.</para>
                       </listitem>
                     </varlistentry>
                     <varlistentry>
                       <term><code>/Supplement</code></term>
                       <listitem>
-                        <para>Použije se pro všechny vložené soubory s výjimkou vloženého dokumentu
+                        <para>Použije se pro všechny vložené soubory s výjimkou vloženého dokumentu
                           ISDOC.</para>
                       </listitem>
                     </varlistentry>
@@ -260,8 +261,7 @@
                 <entry><code>/EF</code></entry>
                 <entry>Slovník, který obsahuje položky <code>F</code> a <code>UF</code>, které
                   obsahují vložený souborový proud (viz <xref linkend="bib.iso32000-1"/>, sekce
-                  7.11.4). Slovník souborového proudu musí povinně obsahovat položky uvedené v
-                  tabulce <xref linkend="tab.embededfile-required"/></entry>
+                  7.11.4). Slovník souborového proudu musí povinně obsahovat položky uvedené v tabulce <xref linkend="tab.embededfile-required"/>.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -287,7 +287,8 @@
                 <entry>
                   <para>Typ internetového média pro vložený soubor. Pro dokument ISDOC a metadata
                     veřejné správy se vždy použije hodnota <code>text/xml</code>. Pro ostatní
-                    vložené soubory se použije jim odpovídající typ.</para>
+                    vložené soubory se použije jim odpovídající typ.<xref linkend="bib.rfc6838"
+                    /></para>
                 </entry>
               </row>
             </tbody>
@@ -297,7 +298,7 @@
       <section>
         <title>Přílohy dokladu</title>
         <para>Pokud dokument ISDOC odkazuje na přílohy (element <tag>Supplement</tag>), tak se
-          přílohy vloží jako soubory do dokumentu PDF. Z dokumentu ISDOC se pak na vložené soubory
+          přílohy vloží jako soubory do dokumentu PDF. Z dokumentu ISDOC se pak na vložené soubory
           odkazuje pomocí identifikátoru fragmentu ve tvaru <code>#ef=<replaceable>jméno
               souboru</replaceable></code>. Např.:</para>
         <programlisting>...
@@ -537,7 +538,7 @@
             />
           </sch:rule>
         </info>
-        <para>Jednotka v rozpisu všech šarží/sériových čísel (element <tag>StoreBatches</tag>) musí
+        <para>Jednotka v rozpisu všech šarží/sériových čísel (element <tag>StoreBatches</tag>) musí
           být stejná jako jednotka pro množství na řádce faktury. Jednotky u šarží jedné řádky
           faktury musí být stejné. Pokud atribut pro jednotku v rozpisu šarží/sériových čísel není
           uveden, tak se předpokládá, že je množství uvedeno ve stejné jednotce jako množství na
@@ -775,7 +776,7 @@
           <para>Autoritě časového razítka se posílá otisk hodnoty digitálního podpisu v elementu
               <tag>SignatureValue</tag>.<footnote>
               <para>Otisk se přitom počítá z elementu <tag>SignatureValue</tag> včetně jeho obsahu
-                nikoliv z binární reprezentace hodnoty digitálního podpisu. Před výpočtem otisku se
+                nikoliv z binární reprezentace hodnoty digitálního podpisu. Před výpočtem otisku se
                 ještě provádí kanonizace. Viz sekce 7.3 <xref linkend="bib.xades"/>.</para>
             </footnote> Pro výpočet otisku musí být použit algoritmus z rodiny SHA-2.<footnote>
               <para>V současné době většina autorit časového razítka v ČR podporuje pouze algoritmus
@@ -883,7 +884,7 @@
             &lt;xades:SignatureTimeStamp>
               &lt;xades:EncapsulatedTimeStamp<co xml:id="dsig-xades-ets"/>
                      Encoding="http://uri.etsi.org/01903/v1.2.2#DER">MIIOB...
-                <emphasis>Časové razítko zakódované v ASN.1/DER a následně base64</emphasis>
+                <emphasis>Časové razítko zakódované v ASN.1/DER a následně base64</emphasis>
                 ...qp8=&lt;/xades:EncapsulatedTimeStamp>
             &lt;/xades:SignatureTimeStamp>
           &lt;/xades:UnsignedSignatureProperties>
@@ -1149,7 +1150,7 @@
         fakt, že jde o dobropis) naznačují, že všechna čísla je od původní faktury vlastně třeba
         odečíst. Dobropis jako takový je ale vždy v kladných částkách. Toto pravidlo bylo
         formulováno a stalo se závazné s verzí 5.2.1. Uvedená hodnota má být na faktuře opravdu
-        záporná pouze v případě, když se někdo snaží tímto způsobem udělat dobropis. Pokud tím
+        záporná pouze v případě, když se někdo snaží tímto způsobem udělat dobropis. Pokud tím
         neklesne částka celého dokladu do záporu (jinak řečeno pokud takové položky jsou
         v minoritě), nelze proti tomu nic namítat, protože tento postup praxe používá a ISDOC na to
         musí umět reagovat. Pokud by ale záporná měla být většina položek, je třeba jít už cestou
@@ -1275,7 +1276,7 @@
           <tag>RegisterKeptAt</tag>, <tag>RegisterFileRef</tag> a <tag>RegisterDate</tag>, protože
         údaje mají uložené jako jednu položku. Formát ISDOC proto alternativně umožňuje informaci
         o zápisu do rejstříku uvést jako jeden řetězec v elementu <tag>Preformatted</tag>. Emitující
-        systém si může vybrat jeden z těchto dvou způsobů reprezentace zápisu do rejstříku. Příjemce
+        systém si může vybrat jeden z těchto dvou způsobů reprezentace zápisu do rejstříku. Příjemce
         dokumentů ISDOC se musí vyrovnat s oběma způsoby.</para>
     </section>
     <section>
@@ -1287,7 +1288,7 @@
         bankovním účtem.</para>
       <para>Dalším typickým případem neuvedení elementu <tag>PaymentMeans</tag> je použití ISDOC pro
         daňový zálohový list. Zde totiž nepřipadá v úvahu, že by měl být nějak placen, naopak on sám
-        se dělá pouze na přijatou platbu nedaňového zálohového listu, a předpokládá se tedy, že bude
+        se dělá pouze na přijatou platbu nedaňového zálohového listu, a předpokládá se tedy, že bude
         obsahovat odpovídající částky v elementu <tag>NonTaxedDeposits</tag>.</para>
     </section>
     <section>
@@ -1297,7 +1298,7 @@
         formát PDF. Lze použít i další formáty ukládající vizuální podobu dokumentu (např. HTML,
         formáty MS Word, MS Excel, obrázky JPEG, GIF, PNG, BMP, atd.). Musí však platit, že příloha
         označená jako „vizuální podoba dokumentu“, musí být skutečně jeho vizuální podoba. Záměr je
-        mít pouze jednu vizuální podobu dokumentu, a proto v elementu <tag>SupplementsList</tag>
+        mít pouze jednu vizuální podobu dokumentu, a proto v elementu <tag>SupplementsList</tag>
         může být pouze jediný element <tag>Supplement</tag> s atributem
         <code>preview="true"</code>.</para>
     </section>
@@ -1402,6 +1403,8 @@
         Infrastructure Time-Stamp Protocol (TSP)</title> August 2001. IETF. Dostupné na URL:
           <bibliomisc><link xlink:href="http://www.ietf.org/rfc/rfc3161.txt"
       /></bibliomisc></bibliomixed>
+    <bibliomixed xml:id="bib.rfc6838"><abbrev>RFC6838</abbrev><title>Media Type Specifications and Registration Procedures</title> January 2013. IETF. Dostupné na URL: <bibliomisc><link
+          xlink:href="http://www.ietf.org/rfc/rfc6838.txt"/></bibliomisc></bibliomixed>
     <bibliomixed xml:id="bib.xmldsig-core"><abbrev>XMLDSig-Core</abbrev><title>XML Signature Syntax
         and Processing (Second Edition).</title> W3C Recommendation. 10 June 2008. W3C. Dostupné na
       URL: <bibliomisc><link xlink:href="http://www.w3.org/TR/xmldsig-core/"
