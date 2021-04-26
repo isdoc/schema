@@ -182,7 +182,126 @@
       </orderedlist>
       <section>
         <title>Vložené soubory</title>
-        <para>….</para>
+        <para>Pro vložení dokumentu ISDOC a případných metadat a příloh dokladu se musí používat
+          slovník <emphasis>File Specification Dictionary</emphasis> (viz <xref
+            linkend="bib.iso32000-1"/>, sekce 7.11.3). Ten přitom musí být odkazován pomocí položky
+            <code>AF</code> ze slovníku <code>Catalog</code> (viz <xref linkend="bib.iso19005-3"/>,
+          příloha E.3). Zároveň musí každý vložený soubor uveden i ve slovníku <emphasis>Name
+            Dictionary</emphasis> (viz <xref linkend="bib.iso32000-1"/>, sekce 7.7.4) ve stromu jmen
+          odkazovaném pomocí položky <code>EmbeddedFiles</code>. Tím se zajistí, že běžné prohlížeče
+          PDF zobrazí vložené soubory jako přílohy.</para>
+        <para>Pro každý vložený soubor musí odpovídající objekt slovníku obsahovat minimálně položky
+          uvedené v tabulce <xref linkend="tab.filespec-required"/>. </para>
+        <table xml:id="tab.filespec-required" frame="all">
+          <title>Povinné položky ve slovníku popisujícím vložený soubor</title>
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1*"/>
+            <colspec colname="c2" colnum="2" colwidth="3.26*"/>
+            <thead>
+              <row>
+                <entry>Klíč</entry>
+                <entry>Hodnota</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><code>/Type</code></entry>
+                <entry>Vždy <code>/Filespec</code></entry>
+              </row>
+              <row>
+                <entry><code>/F</code></entry>
+                <entry>Jméno souboru. Pro vložený dokument ISDOC je to vždy
+                    <filename>invoice.isdoc</filename>, pro metadata pro veřejnou správu to vždy je
+                    <filename>metadata-invoice-nsessl.xml</filename>. Pro ostatní vložené soubory je
+                  to jejich jméno.</entry>
+              </row>
+              <row>
+                <entry><code>/UF</code></entry>
+                <entry>Jméno soubor. Obsahuje stejnou hodnotu jako položka <code>F</code>.</entry>
+              </row>
+              <row>
+                <entry><code>/AFRelationship</code></entry>
+                <entry>
+                  <para>Popisuje vztah vloženého souboru k dokumentu PDF. Přípustné jsou následující
+                    hodnoty:</para>
+                  <variablelist>
+                    <varlistentry>
+                      <term><code>/Source</code></term>
+                      <listitem>
+                        <para>Použije se, pokud bylo PDF vygenerováno přímo z ISDOC
+                          dokumentu.</para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term><code>/Alternative</code></term>
+                      <listitem>
+                        <para>Použije se, pokud PDF i dokument ISDOC byly vygenerovány nezávisle na
+                          sobě – např. z databáze nebo objektového modelu v aplikaci – a jedná se
+                          tak o alternativní reprezentace stejných dat, ale žádná z nich není
+                          primárním zdrojem dat.</para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term><code>/Supplement</code></term>
+                      <listitem>
+                        <para>Použije se pro všechny vložené soubory s výjimkou vloženého dokumentu
+                          ISDOC.</para>
+                      </listitem>
+                    </varlistentry>
+                  </variablelist>
+                </entry>
+              </row>
+              <row>
+                <entry><code>/EF</code></entry>
+                <entry>Slovník, který obsahuje položky <code>F</code> a <code>UF</code>, které
+                  obsahují vložený souborový proud (viz <xref linkend="bib.iso32000-1"/>, sekce
+                  7.11.4). Slovník souborového proudu musí povinně obsahovat položky uvedené v
+                  tabulce <xref linkend="tab.embededfile-required"/></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <table frame="all">
+          <title>Povinné položky ve slovníku popisujícím souborový proud</title>
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1*"/>
+            <colspec colname="c2" colnum="2" colwidth="3.26*"/>
+            <thead>
+              <row>
+                <entry>Klíč</entry>
+                <entry>Hodnota</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><code>/Type</code></entry>
+                <entry>Vždy <code>/EmbeddedFile</code></entry>
+              </row>
+              <row>
+                <entry><code>/SubType</code></entry>
+                <entry>
+                  <para>Typ internetového média pro vložený soubor. Pro dokument ISDOC a metadata
+                    veřejné správy se vždy použije hodnota <code>text/xml</code>. Pro ostatní
+                    vložené soubory se použije jim odpovídající typ.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section>
+        <title>Přílohy dokladu</title>
+        <para>Pokud dokument ISDOC odkazuje na přílohy (element <tag>Supplement</tag>), tak se
+          přílohy vloží jako soubory do dokumentu PDF. Z dokumentu ISDOC se pak na vložené soubory
+          odkazuje pomocí identifikátoru fragmentu ve tvaru <code>#ef=<replaceable>jméno
+              souboru</replaceable></code>. Např.:</para>
+        <programlisting>...
+&lt;Supplement>
+  &lt;Filename>#ef=OBCHODNI_PODMINKY.DOCX&lt;/Filename>
+  &lt;DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+  &lt;DigestValue>Gm9hyD0uRKiUN3VOY7X0OIB1+DU=&lt;/DigestValue>
+&lt;/Supplement>
+...</programlisting>
       </section>
     </section>
     <section xml:id="archiv">
@@ -1188,6 +1307,8 @@
     <bibliomixed xml:id="bib.iso19005-3"><abbrev>ISO 19005-3</abbrev><title>Document management – Electronic 
       document file format for long-term preservation – Part 3: Use of ISO 32000-1 with support for 
       embedded files (PDF/A-3).</title> 2012. ISO. Dostupné na URL: <bibliomisc><link xlink:href="https://www.iso.org/standard/57229.html"/></bibliomisc></bibliomixed>
+    <bibliomixed xml:id="bib.iso32000-1"><abbrev>ISO 32000-1</abbrev><title>Document management – Portable document format – 
+      Part 1: PDF 1.7.</title> 2008. ISO. Dostupné na URL: <bibliomisc><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf"/></bibliomisc></bibliomixed>
     <bibliomixed xml:id="bib.xml"><abbrev>XML</abbrev><title>Extensible Markup Language (XML) 1.0
         (Fifth Edition).</title> W3C Recommendation. 26 November 2008. W3C. Dostupné na URL:
           <bibliomisc><link xlink:href="http://www.w3.org/TR/REC-xml/"/></bibliomisc></bibliomixed>
