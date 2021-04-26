@@ -186,13 +186,13 @@
           slovník <emphasis>File Specification Dictionary</emphasis> (viz <xref
             linkend="bib.iso32000-1"/>, sekce 7.11.3). Ten přitom musí být odkazován pomocí položky
             <code>AF</code> ze slovníku <code>Catalog</code> (viz <xref linkend="bib.iso19005-3"/>,
-          příloha E.3). Zároveň musí každý vložený soubor uveden i ve slovníku <emphasis>Name
+          příloha E.3). Zároveň musí být každý vložený soubor uveden i ve slovníku <emphasis>Name
             Dictionary</emphasis> (viz <xref linkend="bib.iso32000-1"/>, sekce 7.7.4) ve stromu jmen
           odkazovaném pomocí položky <code>EmbeddedFiles</code>. Tím se zajistí, že běžné prohlížeče
           PDF zobrazí vložené soubory jako přílohy.</para>
         <para>Pro každý vložený soubor musí odpovídající objekt slovníku obsahovat minimálně položky
           uvedené v tabulce <xref linkend="tab.filespec-required"/>. </para>
-        <table xml:id="tab.filespec-required" frame="all">
+        <table xml:id="tab.filespec-required">
           <title>Povinné položky ve slovníku popisujícím vložený soubor</title>
           <tgroup cols="2">
             <colspec colname="c1" colnum="1" colwidth="1*"/>
@@ -211,13 +211,13 @@
               <row>
                 <entry><code>/F</code></entry>
                 <entry>Jméno souboru. Pro vložený dokument ISDOC je to vždy
-                    <filename>invoice.isdoc</filename>, pro metadata pro veřejnou správu to vždy je
+                    <filename>invoice.isdoc</filename>, pro metadata pro veřejnou správu je to vždy
                     <filename>metadata-invoice-nsessl.xml</filename>. Pro ostatní vložené soubory je
                   to jejich jméno.</entry>
               </row>
               <row>
                 <entry><code>/UF</code></entry>
-                <entry>Jméno soubor. Obsahuje stejnou hodnotu jako položka <code>F</code>.</entry>
+                <entry>Jméno souboru. Obsahuje stejnou hodnotu jako položka <code>F</code>.</entry>
               </row>
               <row>
                 <entry><code>/AFRelationship</code></entry>
@@ -261,7 +261,7 @@
             </tbody>
           </tgroup>
         </table>
-        <table frame="all">
+        <table xml:id="tab.embededfile-required">
           <title>Povinné položky ve slovníku popisujícím souborový proud</title>
           <tgroup cols="2">
             <colspec colname="c1" colnum="1" colwidth="1*"/>
