@@ -11,6 +11,10 @@
     <title>ISDOC @VERSION@</title>
     <subtitle>Národní standard pro elektronickou fakturaci</subtitle>
     <copyright>
+      <year>2021</year>
+      <holder>MVČR</holder>
+    </copyright>
+    <copyright>
       <year>2014</year>
       <holder>ICT UNIE o.s.</holder>
     </copyright>
