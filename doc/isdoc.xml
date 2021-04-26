@@ -5,8 +5,7 @@
 <!ATTLIST bibliomixed xml:id ID #IMPLIED>
 ]>
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-  version="5.0" xml:lang="cs">
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="5.0" xml:lang="cs">
   <info>
     <title>ISDOC @VERSION@</title>
     <subtitle>Národní standard pro elektronickou fakturaci</subtitle>
@@ -19,17 +18,21 @@
       <holder>ICT UNIE o.s.</holder>
     </copyright>
     <pubdate><?dbtimestamp padding="0"?></pubdate>
-    <releaseinfo revision="6.0.2">Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit a být nahrazen novější verzí.
-      Informace o aktuální verzi standardu ISDOC naleznete na adrese <link xlink:href="http://isdoc.cz"/>.</releaseinfo>
+    <releaseinfo>Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit
+      a být nahrazen novější verzí. Informace o aktuální verzi standardu ISDOC naleznete na adrese
+        <link xlink:href="http://isdoc.cz"/>.</releaseinfo>
   </info>
+  <remark>Tento dokument je ve fázi návrhu. Jakékoliv připomínky a chyby prosím nahlaste pomocí
+      <link xlink:href="https://github.com/isdoc/schema/issues"/>.</remark>
   <section xml:id="uvod">
     <title>Úvod</title>
     <para>Tento dokument definuje formáty pro elektronickou fakturaci souhrnně označované zkratkou
-      ISDOC. Formát byl definován a je nadále rozvíjen pracovní skupinou pro elektronické standardy
-      výměny dat <link xlink:href="http://www.ictu.cz/">ICT Unie o.s.</link>. Veškeré připomínky a
-      dotazy k formátu a jeho specifikaci zasílejte na adresu <email>info@isdoc.cz</email>.</para>
-    <para>V současné verzi ISDOC definuje formát pro fakturu a neplatební dokument, v dalších verzích může
-      být přidána podpora pro další formáty.</para>
+      ISDOC. Formát byl původně definován pracovní skupinou pro elektronické standardy výměny dat
+        <link xlink:href="http://www.ictu.cz/">ICT Unie o.s.</link>. Nyní se o další rozvoj a údržbu
+      formátu stará Ministerstvo vnitra České Republiky. Veškeré připomínky a dotazy k formátu a
+      jeho specifikaci zasílejte na adresu <email>info@isdoc.cz</email>.</para>
+    <para>V současné verzi ISDOC definuje formát pro fakturu a neplatební dokument, v dalších
+      verzích může být přidána podpora pro další formáty.</para>
     <section xml:id="konvence">
       <title>Konvence</title>
       <para>Pokud se v textu nebo v příkladech objevují prefixy jmenných prostorů, platí pro ně
@@ -79,11 +82,11 @@
           <para>daňový doklad – souhrnně označuje fakturu, opravný daňový doklad (dobropis), opravný
             daňový doklad (vrubopis), zálohovou fakturu (nedaňový zálohový list), daňový doklad při
             přijetí platby (daňový zálohový list), opravný daňový doklad při přijetí platby
-            (dobropis daňového zálohového listu)a zjednodušený daňový doklad;</para>          
+            (dobropis daňového zálohového listu)a zjednodušený daňový doklad;</para>
         </listitem>
         <listitem>
           <para>neplatební dokument.</para>
-        </listitem>        
+        </listitem>
       </itemizedlist>
     </section>
     <section xml:id="shoda-dokument">
@@ -103,9 +106,9 @@
                   <tag>Invoice</tag>.</para>
             </listitem>
             <listitem>
-              <para>Pokud se jedná o neplatební dokument, musí být validní vůči schématu uvedenému v části
-                <xref linkend="schema-commondocument"/> a jako kořenový element musí být použit element
-                <tag>CommonDocument</tag>.</para>
+              <para>Pokud se jedná o neplatební dokument, musí být validní vůči schématu uvedenému
+                v části <xref linkend="schema-commondocument"/> a jako kořenový element musí být
+                použit element <tag>CommonDocument</tag>.</para>
             </listitem>
           </itemizedlist>
         </listitem>
@@ -113,10 +116,12 @@
           <para>Musí splňovat pravidla definovaná v části <xref linkend="pravidla"/>.</para>
         </listitem>
         <listitem>
-          <para>Pokud je dokument opatřen digitálním podpisem, musí splňovat požadavky definované v části <xref linkend="podpis"/>.</para>
+          <para>Pokud je dokument opatřen digitálním podpisem, musí splňovat požadavky definované
+            v části <xref linkend="podpis"/>.</para>
         </listitem>
         <listitem>
-          <para>Pokud je dokument opatřen časovým razítkem, musí splňovat požadavky definované v části <xref linkend="razitko"/>.</para>
+          <para>Pokud je dokument opatřen časovým razítkem, musí splňovat požadavky definované
+            v části <xref linkend="razitko"/>.</para>
         </listitem>
       </orderedlist>
     </section>
@@ -361,9 +366,9 @@
   </section>
   <section xml:id="pravidla">
     <title>Pravidla</title>
-    <para>Jednotlivé typy dokumentů ISDOC musí splňovat následující pravidla. Některá z následujících pravidel lze 
-    kontrolovat strojově pomocí schématu v jazyce Schematron. Odpovídající schéma je v příloze <xref linkend="schematron"/>. 
-    </para>
+    <para>Jednotlivé typy dokumentů ISDOC musí splňovat následující pravidla. Některá
+      z následujících pravidel lze kontrolovat strojově pomocí schématu v jazyce Schematron.
+      Odpovídající schéma je v příloze <xref linkend="schematron"/>. </para>
     <section xml:id="pravidla-invoice">
       <title>Pravidla pro typ dokumentu daňový doklad</title>
       <section xml:id="invoice-rule-1">
@@ -373,7 +378,9 @@
             <sch:assert test="isdoc:OriginalDocumentReferences/*"/>
           </sch:rule>
         </info>
-        <para>Pro typ dokladu 2, 3 a 6 musí existovat vazba na původní doklad. Konkrétně tedy pro <tag>DocumentType</tag> = 2, 3, 6 musí existovat element <tag>OriginalDocumentReference</tag> a musí byt neprázdný.</para>
+        <para>Pro typ dokladu 2, 3 a 6 musí existovat vazba na původní doklad. Konkrétně tedy pro
+            <tag>DocumentType</tag> = 2, 3, 6 musí existovat element
+            <tag>OriginalDocumentReference</tag> a musí byt neprázdný.</para>
       </section>
       <section xml:id="invoice-rule-2">
         <info>
@@ -381,16 +388,19 @@
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:LineExtensionAmount]">
             <sch:assert test="isdoc:LineExtensionAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:LineExtensionAmountTaxInclusive]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:LineExtensionAmountTaxInclusive]">
             <sch:assert test="isdoc:LineExtensionAmountTaxInclusiveCurr"/>
           </sch:rule>
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DepositAmount]">
             <sch:assert test="isdoc:DepositAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxableDepositAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxableDepositAmount]">
             <sch:assert test="isdoc:TaxableDepositAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxInclusiveDepositAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxInclusiveDepositAmount]">
             <sch:assert test="isdoc:TaxInclusiveDepositAmountCurr"/>
           </sch:rule>
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxAmount]">
@@ -402,34 +412,42 @@
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxInclusiveAmount]">
             <sch:assert test="isdoc:TaxInclusiveAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxableAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxableAmount]">
             <sch:assert test="isdoc:AlreadyClaimedTaxableAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxAmount]">
             <sch:assert test="isdoc:AlreadyClaimedTaxAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxInclusiveAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxInclusiveAmount]">
             <sch:assert test="isdoc:AlreadyClaimedTaxInclusiveAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxableAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxableAmount]">
             <sch:assert test="isdoc:DifferenceTaxableAmountCurr"/>
           </sch:rule>
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxAmount]">
             <sch:assert test="isdoc:DifferenceTaxAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxInclusiveAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxInclusiveAmount]">
             <sch:assert test="isdoc:DifferenceTaxInclusiveAmountCurr"/>
           </sch:rule>
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxExclusiveAmount]">
             <sch:assert test="isdoc:TaxExclusiveAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxExclusiveAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxExclusiveAmount]">
             <sch:assert test="isdoc:AlreadyClaimedTaxExclusiveAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxExclusiveAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxExclusiveAmount]">
             <sch:assert test="isdoc:DifferenceTaxExclusiveAmountCurr"/>
           </sch:rule>
-          <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PayableRoundingAmount]">
+          <sch:rule
+            context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PayableRoundingAmount]">
             <sch:assert test="isdoc:PayableRoundingAmountCurr"/>
           </sch:rule>
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PaidDepositsAmount]">
@@ -437,9 +455,11 @@
           </sch:rule>
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PayableAmount]">
             <sch:assert test="isdoc:PayableAmountCurr"/>
-          </sch:rule>          
+          </sch:rule>
         </info>
-        <para>Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element <tag>ForeignCurrencyCode</tag>, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na <code>Curr</code>.</para>        
+        <para>Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy.
+          Konkrétně: pokud existuje element <tag>ForeignCurrencyCode</tag>, pak musí existovat
+          všechny elementy s částkami pro cizí měnu tj. ty končící na <code>Curr</code>.</para>
       </section>
       <section xml:id="invoice-rule-3">
         <info>
@@ -471,22 +491,29 @@
             <sch:assert test="not(.//isdoc:PayableAmountCurr)"/>
           </sch:rule>
         </info>
-        <para>Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element <tag>ForeignCurrencyCode</tag>, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na <code>Curr</code>. Položky s kursem (<tag>CurrRate</tag> i <tag>RefCurrRate</tag>) musí být rovny hodnotě 1.</para>        
+        <para>Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud
+          neexistuje element <tag>ForeignCurrencyCode</tag>, pak nesmí existovat žádný element pro
+          cizí měnu, tj. element končící na <code>Curr</code>. Položky s kursem (<tag>CurrRate</tag>
+            i <tag>RefCurrRate</tag>) musí být rovny hodnotě 1.</para>
       </section>
       <section xml:id="invoice-rule-4">
         <info>
           <title>Tuzemská a zahraniční měna musí být rozdílná</title>
           <sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]">
-            <sch:assert test="isdoc:ForeignCurrencyCode != isdoc:LocalCurrencyCode"/>            
+            <sch:assert test="isdoc:ForeignCurrencyCode != isdoc:LocalCurrencyCode"/>
           </sch:rule>
         </info>
-        <para>U dokladu v zahraniční měně nesmí být měna lokální a zahraniční shodné. Konkrétně hodnota povinné položky <tag>LocalCurrencyCode</tag> se nesmí rovnat hodnotě nepovinné položky <tag>ForeignCurrencyCode</tag>.</para>
+        <para>U dokladu v zahraniční měně nesmí být měna lokální a zahraniční shodné. Konkrétně
+          hodnota povinné položky <tag>LocalCurrencyCode</tag> se nesmí rovnat hodnotě nepovinné
+          položky <tag>ForeignCurrencyCode</tag>.</para>
       </section>
       <section xml:id="invoice-rule-5">
         <info>
           <title>Nedaňový doklad nesmí obsahovat řádkové položky podléhající DPH</title>
           <sch:rule context="isdoc:Invoice[isdoc:VATApplicable = 'false']">
-            <sch:assert test="every $va in isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:ClassifiedTaxCategory/isdoc:VATApplicable satisfied $va = 'false'"/>            
+            <sch:assert
+              test="every $va in isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:ClassifiedTaxCategory/isdoc:VATApplicable satisfied $va = 'false'"
+            />
           </sch:rule>
         </info>
         <para>Je-li doklad nedaňový (element <tag>VATApplicable</tag> obsahuje hodnotu
@@ -497,53 +524,70 @@
       </section>
       <section xml:id="invoice-rule-6">
         <info>
-          <title>Jednotky jednotlivých šarží v jedné řádce musí být stejné a odpovídat jednotce množství pro celou řádku</title>
-          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine[isdoc:Item/isdoc:StoreBatches]">
-            <sch:assert test="count(distinct-values(isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity/@unitCode)) le 1"/>            
-            <sch:assert test="if (isdoc:InvoicedQuantity/@unitCode) then
+          <title>Jednotky jednotlivých šarží v jedné řádce musí být stejné a odpovídat jednotce
+            množství pro celou řádku</title>
+          <sch:rule
+            context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine[isdoc:Item/isdoc:StoreBatches]">
+            <sch:assert
+              test="count(distinct-values(isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity/@unitCode)) le 1"/>
+            <sch:assert
+              test="if (isdoc:InvoicedQuantity/@unitCode) then
                                 every $q in isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity) satisfies $q/@unitCode = isdoc:InvoicedQuantity/@unitCode
-                              else true()"/>
+                              else true()"
+            />
           </sch:rule>
         </info>
-        <para>Jednotka v rozpisu všech šarží/sériových čísel (element
-          <tag>StoreBatches</tag>) musí být stejná jako jednotka pro množství na řádce faktury.
-          Jednotky u šarží jedné řádky faktury musí být stejné.
-          Pokud atribut pro jednotku v rozpisu šarží/sériových čísel není uveden, 
-          tak se předpokládá, že je množství uvedeno ve stejné jednotce
-          jako množství na řádce faktury. </para>
+        <para>Jednotka v rozpisu všech šarží/sériových čísel (element <tag>StoreBatches</tag>) musí
+          být stejná jako jednotka pro množství na řádce faktury. Jednotky u šarží jedné řádky
+          faktury musí být stejné. Pokud atribut pro jednotku v rozpisu šarží/sériových čísel není
+          uveden, tak se předpokládá, že je množství uvedeno ve stejné jednotce jako množství na
+          řádce faktury. </para>
       </section>
       <section xml:id="invoice-rule-7">
         <info>
           <title>Součet množství za jednotlivé šarže musí odpovídat množství za celou řádku</title>
-          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine[isdoc:Item/isdoc:StoreBatches]">
-            <sch:assert test="sum(isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity) = isdoc:InvoicedQuantity"/>            
+          <sch:rule
+            context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine[isdoc:Item/isdoc:StoreBatches]">
+            <sch:assert
+              test="sum(isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity) = isdoc:InvoicedQuantity"
+            />
           </sch:rule>
         </info>
-        <para>Součet <tag>Quantity</tag> ze všech záznamů rozpisu šarží/sériových čísel musí odpovídat <tag>InvoicedQuantity</tag> dané řádky faktury.</para>
+        <para>Součet <tag>Quantity</tag> ze všech záznamů rozpisu šarží/sériových čísel musí
+          odpovídat <tag>InvoicedQuantity</tag> dané řádky faktury.</para>
       </section>
       <section xml:id="invoice-rule-8">
         <info>
-          <title>Sekundární identifikace zboží může být uvedena pouze v případě, že je uvedena i primární</title>
-          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:Item[isdoc:SecondarySellersItemIdentification]">
-            <sch:assert test="isdoc:SellersItemIdentification"/>            
+          <title>Sekundární identifikace zboží může být uvedena pouze v případě, že je uvedena
+            i primární</title>
+          <sch:rule
+            context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:Item[isdoc:SecondarySellersItemIdentification]">
+            <sch:assert test="isdoc:SellersItemIdentification"/>
           </sch:rule>
         </info>
-        <para>Nepovinnou položku <tag>SecondarySellersItemIdentification</tag> lze uvést pouze v případě, že je uvedena také položka <tag>SellersItemIdentification</tag>.</para>
+        <para>Nepovinnou položku <tag>SecondarySellersItemIdentification</tag> lze uvést pouze
+          v případě, že je uvedena také položka <tag>SellersItemIdentification</tag>.</para>
       </section>
       <section xml:id="invoice-rule-9">
         <info>
-          <title>Terciální identifikace zboží může být uvedena pouze v případě, že je uvedena i primární a sekundární</title>
-          <sch:rule context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:Item[isdoc:TertiarySellersItemIdentification]">
-            <sch:assert test="isdoc:SellersItemIdentification and isdoc:SecondarySellersItemIdentification"/>            
+          <title>Terciální identifikace zboží může být uvedena pouze v případě, že je uvedena
+            i primární a sekundární</title>
+          <sch:rule
+            context="isdoc:Invoice/isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:Item[isdoc:TertiarySellersItemIdentification]">
+            <sch:assert
+              test="isdoc:SellersItemIdentification and isdoc:SecondarySellersItemIdentification"/>
           </sch:rule>
         </info>
-        <para>Nepovinnou položku <tag>TertiarySellersItemIdentification</tag> lze uvést pouze v případě, že jsou uvedeny také položky <tag>SellersItemIdentification</tag> a <tag>SecondarySellersItemIdentification</tag>.</para>
+        <para>Nepovinnou položku <tag>TertiarySellersItemIdentification</tag> lze uvést pouze
+          v případě, že jsou uvedeny také položky <tag>SellersItemIdentification</tag> a
+            <tag>SecondarySellersItemIdentification</tag>.</para>
       </section>
       <section xml:id="invoice-rule-sdt-origin">
         <info>
           <title>Správce číselníku podrobnějšího typu dokumentu</title>
         </info>
-        <para>Element <tag>SubDocumentTypeOrigin</tag> musí obsahovat pouze hodnoty uvedené v tabulce <xref linkend="tab.std-origin"/>.</para>
+        <para>Element <tag>SubDocumentTypeOrigin</tag> musí obsahovat pouze hodnoty uvedené
+          v tabulce <xref linkend="tab.std-origin"/>.</para>
         <table xml:id="tab.std-origin">
           <title>Přípustné hodnoty pro element <tag>SubDocumentTypeOrigin</tag></title>
           <tgroup cols="4">
@@ -577,9 +621,10 @@
         <info>
           <title>Správce číselníku podrobnějšího typu dokumentu</title>
         </info>
-        <para>Element <tag>SubDocumentTypeOrigin</tag> musí obsahovat pouze hodnoty uvedené v tabulce <xref linkend="tab.std-origin"/>.</para>
+        <para>Element <tag>SubDocumentTypeOrigin</tag> musí obsahovat pouze hodnoty uvedené
+          v tabulce <xref linkend="tab.std-origin"/>.</para>
       </section>
-    </section>      
+    </section>
   </section>
   <section xml:id="podpis">
     <title>Digitální podpisy</title>
@@ -659,7 +704,7 @@
       <title>Požadavky na vícenásobný podpis dokumentu ISDOC</title>
       <orderedlist>
         <listitem>
-          <para >Podpis musí být v souladu s požadavky definovanými v <xref
+          <para>Podpis musí být v souladu s požadavky definovanými v <xref
               linkend="podpis-pozadavky"/>.</para>
         </listitem>
         <listitem>
@@ -683,51 +728,51 @@
     </section>
     <section xml:id="podpis-vicenasobny-stare-dokumenty">
       <title>Ověření vícenásobného podpisu ve starších verzích formátu</title>
-      <para>Do verze ISDOC 5.3.x mohly aplikace produkovat vícenásobné <quote>enveloped</quote> podpisy bez použití transformace
-        XPath. Selže-li jejich ověření standardním postupem, postupuje se následovně:</para>
+      <para>Do verze ISDOC 5.3.x mohly aplikace produkovat vícenásobné <quote>enveloped</quote>
+        podpisy bez použití transformace XPath. Selže-li jejich ověření standardním postupem,
+        postupuje se následovně:</para>
       <orderedlist>
         <listitem>
           <para>Pokud dokument obsahuje alespoň jeden digitální podpis, ověří se poslední digitální
             podpis.</para>
         </listitem>
         <listitem>
-          <para>Poslední digitální podpis (element <tag>Signature</tag>) se z dokumentu odstraní a s takto upraveným dokumentem se opakuje krok 1.</para>
+          <para>Poslední digitální podpis (element <tag>Signature</tag>) se z dokumentu odstraní a
+            s takto upraveným dokumentem se opakuje krok 1.</para>
         </listitem>
       </orderedlist>
     </section>
   </section>
   <section xml:id="razitko">
     <title>Časové razítko</title>
-
-<section xml:id="razitko-pozadavky">
-  <title>Požadavky na časové razítko v dokumentu ISDOC</title>
-  <orderedlist>
-      
-      <listitem>
-        <para>Dokument ISDOC musí obsahovat digitální podpis v souladu s <xref
-            linkend="podpis-pozadavky"/> a rozhodnutím komise <xref linkend="bib.2011-130-eu"
-          />.</para>
-      </listitem>
-      <listitem>
-        <para>Digitální podpis, který je předmětem časového razítka, musí obsahovat unikátní
-          identifikátor uvnitř atributu <tag class="attribute">Id</tag> elementu
-            <tag>Signature</tag>.</para>
-      </listitem>
-      <listitem>
-        <para>Časové razítko musí být ve formě XAdES-T v souladu se specifikací <xref
-            linkend="bib.xades"/>.</para>
-      </listitem>
-      <listitem>
-        <para>Digitální podpis, který je předmětem časového razítka, musí obsahovat podpisový
-          certifikát uvnitř elementu <tag>KeyInfo</tag> (viz sekce 4.4.1 <xref linkend="bib.xades"
-          />) a otisk podpisového certifikátu musí být součástí podepisovaných dat.<footnote>
-            <para>Povinnost zahrnout podpisový certifikát do podpisu definuje forma XAdES-BES.
-              Časové razítko ve formě XAdES-T musí splňovat i všechny požadavky na nižší formu
-              XAdES-BES (resp. XAdES-EPES).</para>
-          </footnote></para>
-      </listitem>
-      <listitem>
-        <para>Autoritě časového razítka se posílá otisk hodnoty digitálního podpisu v elementu
+    <section xml:id="razitko-pozadavky">
+      <title>Požadavky na časové razítko v dokumentu ISDOC</title>
+      <orderedlist>
+        <listitem>
+          <para>Dokument ISDOC musí obsahovat digitální podpis v souladu s <xref
+              linkend="podpis-pozadavky"/> a rozhodnutím komise <xref linkend="bib.2011-130-eu"
+            />.</para>
+        </listitem>
+        <listitem>
+          <para>Digitální podpis, který je předmětem časového razítka, musí obsahovat unikátní
+            identifikátor uvnitř atributu <tag class="attribute">Id</tag> elementu
+              <tag>Signature</tag>.</para>
+        </listitem>
+        <listitem>
+          <para>Časové razítko musí být ve formě XAdES-T v souladu se specifikací <xref
+              linkend="bib.xades"/>.</para>
+        </listitem>
+        <listitem>
+          <para>Digitální podpis, který je předmětem časového razítka, musí obsahovat podpisový
+            certifikát uvnitř elementu <tag>KeyInfo</tag> (viz sekce 4.4.1 <xref linkend="bib.xades"
+            />) a otisk podpisového certifikátu musí být součástí podepisovaných dat.<footnote>
+              <para>Povinnost zahrnout podpisový certifikát do podpisu definuje forma XAdES-BES.
+                Časové razítko ve formě XAdES-T musí splňovat i všechny požadavky na nižší formu
+                XAdES-BES (resp. XAdES-EPES).</para>
+            </footnote></para>
+        </listitem>
+        <listitem>
+          <para>Autoritě časového razítka se posílá otisk hodnoty digitálního podpisu v elementu
               <tag>SignatureValue</tag>.<footnote>
               <para>Otisk se přitom počítá z elementu <tag>SignatureValue</tag> včetně jeho obsahu
                 nikoliv z binární reprezentace hodnoty digitálního podpisu. Před výpočtem otisku se
@@ -736,17 +781,17 @@
               <para>V současné době většina autorit časového razítka v ČR podporuje pouze algoritmus
                 SHA-256.</para>
             </footnote></para>
-      </listitem>
-      <listitem>
-        <para>Časové razítko obdržené od autority časového razítka musí být uloženo v elementu
+        </listitem>
+        <listitem>
+          <para>Časové razítko obdržené od autority časového razítka musí být uloženo v elementu
               <tag>EncapsulatedTimeStamp</tag> ve formátu ASN.1 zakódovaném v DER a následně pomocí
             base64. Časové razítko musí vyhovovat formátu definovanému produkčním pravidlem
               <literal>TimeStampToken</literal> dle <xref linkend="bib.rfc3161"/>.</para>
-      </listitem>
-    </orderedlist>
-    <example>
-      <title>ISDOC s digitálními podpisy výstavce, příjemce a časovým razítkem</title>
-      <programlisting>&lt;?xml version="1.0" encoding="utf-8"?>
+        </listitem>
+      </orderedlist>
+      <example>
+        <title>ISDOC s digitálními podpisy výstavce, příjemce a časovým razítkem</title>
+        <programlisting>&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;Invoice xmlns="http://isdoc.cz/namespace/2013" version="5.2.2">
   &lt;DocumentType>1&lt;/DocumentType>
   <emphasis role="italic">... samotný obsah faktury ve formátu ISDOC ...</emphasis>
@@ -847,103 +892,103 @@
     &lt;/Object>
   &lt;/Signature>
 &lt;/Invoice></programlisting>
-      <calloutlist>
-        <callout arearefs="dsig-vystavce">
-          <para>Digitální podpis výstavce dokumentu. Podepsán je původní obsah faktury.</para>
-        </callout>
-        <callout arearefs="dsig-prijemce">
-          <para>Digitální podpis příjemce dokumentu. Podepsán je celý předcházející dokument – tedy
-            jak původní obsah faktury tak podpis výstavce. Navíc je kvůli požadavkům na shodu
-            s XAdES-BES podepsán i podpisový certifikát příjemce (viz <coref linkend="dsig-ref2"
-            />).</para>
-        </callout>
-        <callout arearefs="dsig-id">
-          <para>Digitální podpis, který chceme opatřit časovým razítkem, musí mít unikátní
-            identifikátor. Časové razítko pomocí odkazu na identifikátor indikuje, kterého podpisu
-            se týká.</para>
-        </callout>
-        <callout arearefs="dsig-si">
-          <para>Element <tag>SignedInfo</tag> obsahuje informace o podepisovaných datech, způsobu
-            jejich kanonizace a metodě výpočtu podpisu.</para>
-        </callout>
-        <callout arearefs="dsig-ref1">
-          <para>Element <tag>Reference</tag> určuje data pro podepsání. Atribut <code>URI=""</code>
-            říká, že se bude podepisovat celý stávající dokument (v našem případě původní faktura a
-            podpis výstavce).</para>
-        </callout>
-        <callout arearefs="dsig-ref1-id">
-          <para>Element <tag>Reference</tag> musí mít přiřazen identifikátor, aby se na něj bylo
-            možné odkázat z elementu <tag>DataObjectFormat</tag> (viz <coref
-              linkend="dsig-xades-dof"/>).</para>
-        </callout>
-        <callout arearefs="dsig-ref2">
-          <para>Element <tag>Reference</tag> určuje data pro podepsání. Atribut
-              <code>URI="#Signature-2-SignedProperties"</code> říká, že se bude podepisovat element,
-            který má identifikátor <code>Signature-2-SignedProperties</code>. V našem případě se
-            jedná o element <tag>SignedProperties</tag> obsahující čas podepisování, otisk
-            podpisového certifikátu (viz <coref linkend="dsig-xades-sc"/>) a další informace.
-            Zahrnutí těchto údajů do podpisu vyžaduje XAdES-BES.</para>
-        </callout>
-        <callout arearefs="dsig-ref2-uri">
-          <para>Odkaz na podepisovaná data, v tomto případě na element <tag>SignedProperties</tag>
-            (viz <coref linkend="dsig-xades-sp"/>) obsahující zejména otisk podpisového
-            certifikátu.</para>
-        </callout>
-        <callout arearefs="dsig-ki">
-          <para>Element <tag>KeyInfo</tag> obsahuje podpisový certifikát. XAdES-BES vyžaduje, aby
+        <calloutlist>
+          <callout arearefs="dsig-vystavce">
+            <para>Digitální podpis výstavce dokumentu. Podepsán je původní obsah faktury.</para>
+          </callout>
+          <callout arearefs="dsig-prijemce">
+            <para>Digitální podpis příjemce dokumentu. Podepsán je celý předcházející dokument –
+              tedy jak původní obsah faktury tak podpis výstavce. Navíc je kvůli požadavkům na shodu
+              s XAdES-BES podepsán i podpisový certifikát příjemce (viz <coref linkend="dsig-ref2"
+              />).</para>
+          </callout>
+          <callout arearefs="dsig-id">
+            <para>Digitální podpis, který chceme opatřit časovým razítkem, musí mít unikátní
+              identifikátor. Časové razítko pomocí odkazu na identifikátor indikuje, kterého podpisu
+              se týká.</para>
+          </callout>
+          <callout arearefs="dsig-si">
+            <para>Element <tag>SignedInfo</tag> obsahuje informace o podepisovaných datech, způsobu
+              jejich kanonizace a metodě výpočtu podpisu.</para>
+          </callout>
+          <callout arearefs="dsig-ref1">
+            <para>Element <tag>Reference</tag> určuje data pro podepsání. Atribut
+                <code>URI=""</code> říká, že se bude podepisovat celý stávající dokument (v našem
+              případě původní faktura a podpis výstavce).</para>
+          </callout>
+          <callout arearefs="dsig-ref1-id">
+            <para>Element <tag>Reference</tag> musí mít přiřazen identifikátor, aby se na něj bylo
+              možné odkázat z elementu <tag>DataObjectFormat</tag> (viz <coref
+                linkend="dsig-xades-dof"/>).</para>
+          </callout>
+          <callout arearefs="dsig-ref2">
+            <para>Element <tag>Reference</tag> určuje data pro podepsání. Atribut
+                <code>URI="#Signature-2-SignedProperties"</code> říká, že se bude podepisovat
+              element, který má identifikátor <code>Signature-2-SignedProperties</code>. V našem
+              případě se jedná o element <tag>SignedProperties</tag> obsahující čas podepisování,
+              otisk podpisového certifikátu (viz <coref linkend="dsig-xades-sc"/>) a další
+              informace. Zahrnutí těchto údajů do podpisu vyžaduje XAdES-BES.</para>
+          </callout>
+          <callout arearefs="dsig-ref2-uri">
+            <para>Odkaz na podepisovaná data, v tomto případě na element <tag>SignedProperties</tag>
+              (viz <coref linkend="dsig-xades-sp"/>) obsahující zejména otisk podpisového
+              certifikátu.</para>
+          </callout>
+          <callout arearefs="dsig-ki">
+            <para>Element <tag>KeyInfo</tag> obsahuje podpisový certifikát. XAdES-BES vyžaduje, aby
               byl tento certifikát přítomen a byl podepsán jeho otisk v elementu
                 <tag>SigningCertificate</tag>.</para>
-        </callout>
-        <callout arearefs="dsig-object">
-          <para>Element <tag>Object</tag> slouží jako kontejner, do kterého je možné přidat
-            doplňující informace pro digitální podpis včetně časového razítka XAdES-T.</para>
-        </callout>
-        <callout arearefs="dsig-xades-qp">
-          <para>Element <tag>QualifyingProperties</tag> obaluje všechny informace XAdES.</para>
-        </callout>
-        <callout arearefs="dsig-xades-target">
-          <para>Atribut <tag class="attribute">Target</tag> obsahuje odkaz na digitální podpis,
-            kterého se týká časové razítko.</para>
-        </callout>
-        <callout arearefs="dsig-xades-sp">
-          <para>Element <tag>SignedProperties</tag> obaluje veškeré přídavné vlastnosti, které se
-            podepisují. Zejména otisk podpisového certifikátu.</para>
-        </callout>
-        <callout arearefs="dsig-xades-st">
-          <para>Čas UTC podepisování dokumentu. Čas musí vyhovovat datovému typu
-              <code>dateTime</code> W3C XML schémat.</para>
-        </callout>
-        <callout arearefs="dsig-xades-sc">
-          <para>Informace o podpisovém certifikátu. Element <tag>SigningCertificate</tag> nesmí
-            obsahovat atribut <tag class="attribute">Id</tag> (viz <xref linkend="bib.2011-130-eu"
-            />) – odpovídající certifikát v elementu <tag>KeyInfo</tag> (viz <coref
-              linkend="dsig-ki"/>) je nalezen na základě shody otisku certifikátu (viz <coref
-              linkend="dsig-xades-dv"/>).</para>
-        </callout>
-        <callout arearefs="dsig-xades-dv">
-          <para>Hodnota otisku podpisového certifikátu zakódovaná pomocí base64. Otisk se počítá nad
-            certifikátem ve formátu ASN.1/DER. Algoritmus pro výpočet otisku je určen předcházejícím
-            elementem <tag>DigestMethod</tag>.</para>
-        </callout>
-        <callout arearefs="dsig-xades-is">
-          <para>Element <tag>IssuerSerial</tag> a jeho podelementy identifikují certifikační
+          </callout>
+          <callout arearefs="dsig-object">
+            <para>Element <tag>Object</tag> slouží jako kontejner, do kterého je možné přidat
+              doplňující informace pro digitální podpis včetně časového razítka XAdES-T.</para>
+          </callout>
+          <callout arearefs="dsig-xades-qp">
+            <para>Element <tag>QualifyingProperties</tag> obaluje všechny informace XAdES.</para>
+          </callout>
+          <callout arearefs="dsig-xades-target">
+            <para>Atribut <tag class="attribute">Target</tag> obsahuje odkaz na digitální podpis,
+              kterého se týká časové razítko.</para>
+          </callout>
+          <callout arearefs="dsig-xades-sp">
+            <para>Element <tag>SignedProperties</tag> obaluje veškeré přídavné vlastnosti, které se
+              podepisují. Zejména otisk podpisového certifikátu.</para>
+          </callout>
+          <callout arearefs="dsig-xades-st">
+            <para>Čas UTC podepisování dokumentu. Čas musí vyhovovat datovému typu
+                <code>dateTime</code> W3C XML schémat.</para>
+          </callout>
+          <callout arearefs="dsig-xades-sc">
+            <para>Informace o podpisovém certifikátu. Element <tag>SigningCertificate</tag> nesmí
+              obsahovat atribut <tag class="attribute">Id</tag> (viz <xref linkend="bib.2011-130-eu"
+              />) – odpovídající certifikát v elementu <tag>KeyInfo</tag> (viz <coref
+                linkend="dsig-ki"/>) je nalezen na základě shody otisku certifikátu (viz <coref
+                linkend="dsig-xades-dv"/>).</para>
+          </callout>
+          <callout arearefs="dsig-xades-dv">
+            <para>Hodnota otisku podpisového certifikátu zakódovaná pomocí base64. Otisk se počítá
+              nad certifikátem ve formátu ASN.1/DER. Algoritmus pro výpočet otisku je určen
+              předcházejícím elementem <tag>DigestMethod</tag>.</para>
+          </callout>
+          <callout arearefs="dsig-xades-is">
+            <para>Element <tag>IssuerSerial</tag> a jeho podelementy identifikují certifikační
               autoritu, která vystavila podpisový certifikát.</para>
-        </callout>
-        <callout arearefs="dsig-xades-dof">
-          <para>Element <tag>DataObjectFormat</tag> se pomocí atributu <tag class="attribute"
-              >ObjectReference</tag> odkazuje na element <tag>Reference</tag> (viz <coref
-              linkend="dsig-ref1"/>), který do podpisu zahrnuje celý dokument ISDOC. Musí obsahovat
-            podelement <tag>MimeType</tag> určující MIME typ odkazovaných dat. V případě formátu
-            ISDOC, který používá syntaxi XML, je MIME typ vždy
-            <literal>application/xml</literal>.</para>
-        </callout>
-        <callout arearefs="dsig-xades-ets">
-          <para>Element <tag>EncapsulatedTimeStamp</tag> obsahuje samotné časové razítko ve formátu
-            ASN.1/DER zakódované pomocí base64.</para>
-        </callout>
-      </calloutlist>
-    </example>
-  </section>
+          </callout>
+          <callout arearefs="dsig-xades-dof">
+            <para>Element <tag>DataObjectFormat</tag> se pomocí atributu <tag class="attribute"
+                >ObjectReference</tag> odkazuje na element <tag>Reference</tag> (viz <coref
+                linkend="dsig-ref1"/>), který do podpisu zahrnuje celý dokument ISDOC. Musí
+              obsahovat podelement <tag>MimeType</tag> určující MIME typ odkazovaných dat. V případě
+              formátu ISDOC, který používá syntaxi XML, je MIME typ vždy
+                <literal>application/xml</literal>.</para>
+          </callout>
+          <callout arearefs="dsig-xades-ets">
+            <para>Element <tag>EncapsulatedTimeStamp</tag> obsahuje samotné časové razítko ve
+              formátu ASN.1/DER zakódované pomocí base64.</para>
+          </callout>
+        </calloutlist>
+      </example>
+    </section>
   </section>
   <appendix xml:id="poznamky">
     <title>Implementační poznámky</title>
@@ -1059,7 +1104,8 @@
         </listitem>
         <listitem>
           <para>Pokud je odesílajícím subjektem česká firma, musí element
-              <tag>Invoice</tag>/<tag>AccountingSupplierParty</tag>/<tag>PostalAddress</tag>/<tag>Country</tag>/<tag>IdentificationCode</tag> v souladu s ISO 3166-1 obsahovat hodnotu „<code>CZ</code>“.</para>
+              <tag>Invoice</tag>/<tag>AccountingSupplierParty</tag>/<tag>PostalAddress</tag>/<tag>Country</tag>/<tag>IdentificationCode</tag>
+            v souladu s ISO 3166-1 obsahovat hodnotu „<code>CZ</code>“.</para>
         </listitem>
         <listitem>
           <para>Je vyplněna informace o zápisu v rejstříku
@@ -1081,9 +1127,8 @@
         <listitem>
           <para> vztah daňových záloh: </para>
           <para><inlineequation>
-              <mathphrase>TaxInclusiveAmount -
-                  AlreadyClaimedTaxInclusiveAmount =
-                  DifferenceTaxInclusiveAmount</mathphrase>
+              <mathphrase>TaxInclusiveAmount - AlreadyClaimedTaxInclusiveAmount =
+                DifferenceTaxInclusiveAmount</mathphrase>
             </inlineequation></para>
           <para>neboli celková částka s daní – položka předepsané daňové zálohy v kladné částce =
             rozdíl, tj. celková částka k zaplacení s daní.</para>
@@ -1091,8 +1136,8 @@
         <listitem>
           <para> vztah nedaňových záloh a zaokrouhlení až k částce „k zaplacení“: </para>
           <para><inlineequation>
-              <mathphrase>DifferenceTaxInclusiveAmount + PayableRoundingAmount
-                - PaidDepositsAmount = PayableAmount</mathphrase>
+              <mathphrase>DifferenceTaxInclusiveAmount + PayableRoundingAmount - PaidDepositsAmount
+                = PayableAmount</mathphrase>
             </inlineequation></para>
           <para>neboli celková částka k zaplacení s daní + haléřové vyrovnání (zaokrouhlení) -
             zaplacené nedaňové zálohy = částka k zaplacení.</para>
@@ -1255,41 +1300,55 @@
         mít pouze jednu vizuální podobu dokumentu, a proto v elementu <tag>SupplementsList</tag>
         může být pouze jediný element <tag>Supplement</tag> s atributem
         <code>preview="true"</code>.</para>
-    </section>    
+    </section>
   </appendix>
   <appendix xml:id="schema">
     <title>Schémata pro jednotlivé typy dokumentů</title>
     <section xml:id="schema-invoice">
-      <title>Schéma pro daňový doklad – <filename condition="html" xlink:href="../xsd/isdoc-invoice-@VERSION@.xsd">isdoc-invoice-@VERSION@.xsd</filename><filename condition="print">isdoc-invoice-@VERSION@.xsd</filename></title>
+      <title>Schéma pro daňový doklad – <filename condition="html"
+          xlink:href="../xsd/isdoc-invoice-@VERSION@.xsd"
+          >isdoc-invoice-@VERSION@.xsd</filename><filename condition="print"
+          >isdoc-invoice-@VERSION@.xsd</filename></title>
       <note>
-        <para>Přehledný grafický diagram schématu je dostupný na adrese <link xlink:href="http://isdoc.cz/@VERSION@/doc-cs/isdoc-invoice-@VERSION@.html"/>.</para>
+        <para>Přehledný grafický diagram schématu je dostupný na adrese <link
+            xlink:href="http://isdoc.cz/@VERSION@/doc-cs/isdoc-invoice-@VERSION@.html"/>.</para>
       </note>
-      <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-invoice-@VERSION@.xsd" encoding="utf-8"></textdata></textobject></programlisting>
+      <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-invoice-@VERSION@.xsd" encoding="utf-8"/></textobject></programlisting>
     </section>
     <section xml:id="schema-commondocument">
-      <title>Schéma pro neplatební dokument – <filename condition="html" xlink:href="../xsd/isdoc-commondocument-@VERSION@.xsd">isdoc-commondocument-@VERSION@.xsd</filename><filename condition="print">isdoc-commondocument-@VERSION@.xsd</filename></title>
+      <title>Schéma pro neplatební dokument – <filename condition="html"
+          xlink:href="../xsd/isdoc-commondocument-@VERSION@.xsd"
+          >isdoc-commondocument-@VERSION@.xsd</filename><filename condition="print"
+          >isdoc-commondocument-@VERSION@.xsd</filename></title>
       <note>
-        <para>Přehledný grafický diagram schématu je dostupný na adrese <link xlink:href="http://isdoc.cz/@VERSION@/doc-cs/isdoc-commondocument-@VERSION@.html"/>.</para>
+        <para>Přehledný grafický diagram schématu je dostupný na adrese <link
+            xlink:href="http://isdoc.cz/@VERSION@/doc-cs/isdoc-commondocument-@VERSION@.html"
+          />.</para>
       </note>
-      <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-commondocument-@VERSION@.xsd" encoding="utf-8"></textdata></textobject></programlisting>
+      <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-commondocument-@VERSION@.xsd" encoding="utf-8"/></textobject></programlisting>
     </section>
     <section xml:id="schema-manifest">
-      <title>Schéma pro manifest – <filename condition="html" xlink:href="../xsd/isdoc-manifest-@VERSION@.xsd">isdoc-manifest-@VERSION@.xsd</filename><filename condition="print">isdoc-manifest-@VERSION@.xsd</filename></title>
-      <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-manifest-@VERSION@.xsd" encoding="utf-8"></textdata></textobject></programlisting>
+      <title>Schéma pro manifest – <filename condition="html"
+          xlink:href="../xsd/isdoc-manifest-@VERSION@.xsd"
+          >isdoc-manifest-@VERSION@.xsd</filename><filename condition="print"
+          >isdoc-manifest-@VERSION@.xsd</filename></title>
+      <programlisting condition="print" role="small"><textobject><textdata fileref="../xsd/isdoc-manifest-@VERSION@.xsd" encoding="utf-8"/></textobject></programlisting>
     </section>
   </appendix>
   <appendix xml:id="schematron">
-    <title>Schéma pro kontrolu vybraných pravidel – <filename condition="html" xlink:href="../sch/isdoc-@VERSION@.sch">isdoc-@VERSION@.sch</filename><filename condition="print">isdoc-@VERSION@.sch</filename></title>
-    <programlisting role="small" language="xml"><textobject><textdata fileref="../sch/isdoc-@VERSION@.sch" encoding="utf-8"></textdata></textobject></programlisting>    
+    <title>Schéma pro kontrolu vybraných pravidel – <filename condition="html"
+        xlink:href="../sch/isdoc-@VERSION@.sch">isdoc-@VERSION@.sch</filename><filename
+        condition="print">isdoc-@VERSION@.sch</filename></title>
+    <programlisting role="small" language="xml"><textobject><textdata fileref="../sch/isdoc-@VERSION@.sch" encoding="utf-8"/></textobject></programlisting>
   </appendix>
   <xi:include href="changelog-cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-  <appendix>  
+  <appendix>
     <title>Možné změny pro další verze</title>
     <para>Následující seznam obsahuje navrhované změny a rozšíření pro některou z dalších verzí
       ISDOC.</para>
     <itemizedlist>
-      <listitem revision="6.0.2">
-        <para>Další verze ISDOC bude podporovat další typy dokumentů objednávka a potvrzení objednávky.</para>
+      <listitem>
+        <para>Zvažujeme přidání nových typů dokumentu objednávka a potvrzení objednávky.</para>
       </listitem>
       <listitem>
         <para>Zvažujeme přidání nového typu dokumentu, který bude sloužit jako kontejner pro uložení
@@ -1297,18 +1356,24 @@
       </listitem>
     </itemizedlist>
   </appendix>
-  
   <bibliography>
     <title>Reference</title>
-    <bibliomixed xml:id="bib.appnote"><abbrev>APPNOTE</abbrev><title>APPNOTE.TXT – .ZIP File Format Specification.</title> September 2007. PKWARE Inc. Dostupné na URL: <bibliomisc><link xlink:href="http://www.pkware.com/documents/APPNOTE/APPNOTE-6.3.2.TXT"/></bibliomisc></bibliomixed>
+    <bibliomixed xml:id="bib.appnote"><abbrev>APPNOTE</abbrev><title>APPNOTE.TXT – .ZIP File Format
+        Specification.</title> September 2007. PKWARE Inc. Dostupné na URL: <bibliomisc><link
+          xlink:href="http://www.pkware.com/documents/APPNOTE/APPNOTE-6.3.2.TXT"
+      /></bibliomisc></bibliomixed>
     <bibliomixed xml:id="bib.rfc4051"><abbrev>RFC4051</abbrev><title>Additional XML Security Uniform
         Resource Identifiers (URIs).</title> April 2005. IETF. Dostupné na URL: <bibliomisc><link
           xlink:href="http://www.ietf.org/rfc/rfc4051.txt"/></bibliomisc></bibliomixed>
-    <bibliomixed xml:id="bib.iso19005-3"><abbrev>ISO 19005-3</abbrev><title>Document management – Electronic 
-      document file format for long-term preservation – Part 3: Use of ISO 32000-1 with support for 
-      embedded files (PDF/A-3).</title> 2012. ISO. Dostupné na URL: <bibliomisc><link xlink:href="https://www.iso.org/standard/57229.html"/></bibliomisc></bibliomixed>
-    <bibliomixed xml:id="bib.iso32000-1"><abbrev>ISO 32000-1</abbrev><title>Document management – Portable document format – 
-      Part 1: PDF 1.7.</title> 2008. ISO. Dostupné na URL: <bibliomisc><link xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf"/></bibliomisc></bibliomixed>
+    <bibliomixed xml:id="bib.iso19005-3"><abbrev>ISO 19005-3</abbrev><title>Document management –
+        Electronic document file format for long-term preservation – Part 3: Use of ISO 32000-1 with
+        support for embedded files (PDF/A-3).</title> 2012. ISO. Dostupné na URL: <bibliomisc><link
+          xlink:href="https://www.iso.org/standard/57229.html"/></bibliomisc></bibliomixed>
+    <bibliomixed xml:id="bib.iso32000-1"><abbrev>ISO 32000-1</abbrev><title>Document management –
+        Portable document format – Part 1: PDF 1.7.</title> 2008. ISO. Dostupné na URL:
+          <bibliomisc><link
+          xlink:href="https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf"
+        /></bibliomisc></bibliomixed>
     <bibliomixed xml:id="bib.xml"><abbrev>XML</abbrev><title>Extensible Markup Language (XML) 1.0
         (Fifth Edition).</title> W3C Recommendation. 26 November 2008. W3C. Dostupné na URL:
           <bibliomisc><link xlink:href="http://www.w3.org/TR/REC-xml/"/></bibliomisc></bibliomixed>
@@ -1321,19 +1386,18 @@
       <title>COMMISSION DECISION of 25 February 2011 establishing minimum requirements for the
         cross-border processing of documents signed electronically by competent authorities under
         Directive 2006/123/EC of the European Parliament and of the Council on services in the
-        internal market</title>. Dostupné na URL:
-          <bibliomisc><link xlink:href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2011:053:0066:0072:EN:PDF"/></bibliomisc><footnote>
+        internal market</title>. Dostupné na URL: <bibliomisc><link
+          xlink:href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2011:053:0066:0072:EN:PDF"
+        /></bibliomisc><footnote>
         <para>Kvůli chybám v českém překladu doporučujeme vycházet z anglické verze rozhodnutí
           komise.</para>
       </footnote></bibliomixed>
-    <bibliomixed xml:id="bib.cba29"><abbrev>ČBA-STD-29</abbrev><title>Standard elektronické fakturace – Popis rozhraní pro zasílání
-      e-faktur a e-dokumentů koncovým spotřebitelům do aplikací elektronického bankovnictví</title>.
-      2014. Česká bankovní asociace.
-    </bibliomixed>
-    <bibliomixed xml:id="bib.rfc1951"><abbrev>RFC1951</abbrev><title>DEFLATE Compressed Data Format Specification version 1.3</title>
-      May 1996. IETF. Dostupné na URL:
-      <bibliomisc><link xlink:href="http://www.ietf.org/rfc/rfc1951.txt"
-      /></bibliomisc></bibliomixed>
+    <bibliomixed xml:id="bib.cba29"><abbrev>ČBA-STD-29</abbrev><title>Standard elektronické
+        fakturace – Popis rozhraní pro zasílání e-faktur a e-dokumentů koncovým spotřebitelům do
+        aplikací elektronického bankovnictví</title>. 2014. Česká bankovní asociace. </bibliomixed>
+    <bibliomixed xml:id="bib.rfc1951"><abbrev>RFC1951</abbrev><title>DEFLATE Compressed Data Format
+        Specification version 1.3</title> May 1996. IETF. Dostupné na URL: <bibliomisc><link
+          xlink:href="http://www.ietf.org/rfc/rfc1951.txt"/></bibliomisc></bibliomixed>
     <bibliomixed xml:id="bib.rfc3161"><abbrev>RFC3161</abbrev><title>Internet X.509 Public Key
         Infrastructure Time-Stamp Protocol (TSP)</title> August 2001. IETF. Dostupné na URL:
           <bibliomisc><link xlink:href="http://www.ietf.org/rfc/rfc3161.txt"
@@ -1343,5 +1407,4 @@
       URL: <bibliomisc><link xlink:href="http://www.w3.org/TR/xmldsig-core/"
       /></bibliomisc></bibliomixed>
   </bibliography>
-  
 </article>
