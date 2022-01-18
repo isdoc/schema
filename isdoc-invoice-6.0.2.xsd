@@ -4,6 +4,8 @@
   Schéma pro fakturu ISDOC
   Schema for ISDOC invoice
   
+  (c) 2022 MVČR, https://www.mvcr.cz/
+  
   (c) 2010-2014 ICT UNIE o.s., http://www.ictu.cz/
   (c) 2010-2014 ICT UNIE o.s. - ASSOCIATION FOR INFORMATION TECHNOLOGIES AND TELECOMMUNICATIONS, http://www.ictu.cz/ 
   
@@ -20,8 +22,6 @@
   Neither the name of the SPIS, ICT UNIE, nor the name ISDOC may be used to 
   endorse or promote products derived from this software without specific 
   prior written permission.
-
-  $Id: isdoc-invoice-6.0.2.xsd,v 1.2 2014/09/24 10:44:30 jkj Exp $
 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"

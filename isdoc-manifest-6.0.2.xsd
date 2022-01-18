@@ -4,8 +4,10 @@
   Schéma pro manifest ISDOC archivu
   Schema for manifest of ISDOC archive
   
-  (c) 2010-2013 ICT UNIE o.s., http://www.ictu.cz/
-  (c) 2010-2013 ICT UNIE o.s. - ASSOCIATION FOR INFORMATION TECHNOLOGIES AND TELECOMMUNICATIONS, http://www.ictu.cz/ 
+  (c) 2022 MVČR, https://www.mvcr.cz/
+  
+  (c) 2010-2014 ICT UNIE o.s., http://www.ictu.cz/
+  (c) 2010-2014 ICT UNIE o.s. - ASSOCIATION FOR INFORMATION TECHNOLOGIES AND TELECOMMUNICATIONS, http://www.ictu.cz/ 
   
   (c) 2009 Sdružení pro informační společnost, http://www.spis.cz/
   (c) 2009 Association for Information Society, http://www.spis.cz/
@@ -20,8 +22,6 @@
   Neither the name of the SPIS, ICT UNIE, nor the name ISDOC may be used to 
   endorse or promote products derived from this software without specific 
   prior written permission.
-  
-  $Id: isdoc-manifest-6.0.2.xsd,v 1.1 2014/09/23 08:17:16 jkj Exp $
   
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"

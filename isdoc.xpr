@@ -681,26 +681,6 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>doc/isdoc.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>PDF</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioStorageLocations">
-                                    <list>
-                                        <Byte>2</Byte>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
                                     <String>doc/pravidla-6.0.2.xml</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -1046,6 +1026,26 @@
                                 <field name="scenarioIds">
                                     <list>
                                         <String>PDF</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>file:/C:/xslt2intro/src/clanek.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>xml-stylesheet processing instruction</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -2185,7 +2185,7 @@
                                     <String></String>
                                 </field>
                                 <field name="buildTarget">
-                                    <String></String>
+                                    <String>ghpages</String>
                                 </field>
                                 <field name="buildFilePath">
                                     <String>${cfne}</String>
@@ -2295,6 +2295,8 @@
                                 <field name="extensionURLs">
                                     <String-array>
                                         <String>${pdu}/lib/resolver.jar</String>
+                                        <String>${pdu}/lib/xercesImpl.jar</String>
+                                        <String>${pdu}/lib/xml-apis.jar</String>
                                     </String-array>
                                 </field>
                             </antScenario>

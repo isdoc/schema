@@ -174,9 +174,7 @@
             </varlistentry>
             <varlistentry>
                 <term><filename>examples/</filename></term>
-                <listitem><para>Ukázkové dokumenty ISDOC.</para>
-                    <remark>FIXME: Doplnit další příklady (eGov, digitální podpis, časové razítko).</remark>
-                </listitem>
+                <listitem><para>Ukázkové dokumenty ISDOC.</para></listitem>
             </varlistentry>
         </variablelist>
     </section>

@@ -18,12 +18,12 @@
       <holder>ICT UNIE o.s.</holder>
     </copyright>
     <pubdate><?dbtimestamp padding="0"?></pubdate>
-    <releaseinfo>Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit
+    <releaseinfo><remark>Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit
       a být nahrazen novější verzí. Informace o aktuální verzi standardu ISDOC naleznete na adrese
-        <link xlink:href="http://isdoc.cz"/>.</releaseinfo>
-  </info>
-  <remark>Tento dokument je ve fázi návrhu. Jakékoliv připomínky a chyby prosím nahlaste pomocí
-      <link xlink:href="https://github.com/isdoc/schema/issues"/>.</remark>
+      <link xlink:href="http://isdoc.cz"/>.</remark></releaseinfo>
+    <releaseinfo><remark>Jakékoliv připomínky a chyby prosím nahlaste pomocí
+      <link xlink:href="https://github.com/isdoc/schema/issues"/>.</remark></releaseinfo>
+  </info>  
   <section xml:id="uvod">
     <title>Úvod</title>
     <para>Tento dokument definuje formáty pro elektronickou fakturaci souhrnně označované zkratkou
