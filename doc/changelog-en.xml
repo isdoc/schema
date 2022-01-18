@@ -17,7 +17,7 @@
       </listitem>
     </itemizedlist>
   </section>
-  <section>
+  <!--<section>
         <title>Changes since version 5.3.1 from 2011-12-30</title>
         <itemizedlist>
             <listitem>
@@ -66,5 +66,5 @@
                 <para>Added new document type for nonpayment documents (<tag>CommonDocument</tag> element).</para>
             </listitem>
         </itemizedlist>
-    </section>
+    </section>-->
 </appendix>

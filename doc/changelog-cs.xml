@@ -17,7 +17,7 @@
       </listitem>
     </itemizedlist>
   </section>
-  <section>
+  <!--<section>
         <title>Změny oproti verzi 5.3.1 z 30.12.2011</title>
         <itemizedlist>
             <listitem>
@@ -69,5 +69,5 @@
                 <para>Přidán nový typ dokumentu neplatební dokument (element <tag>CommonDocument</tag>).</para>
             </listitem>
         </itemizedlist>
-    </section>
+    </section>-->
 </appendix>
