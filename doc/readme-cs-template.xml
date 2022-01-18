@@ -5,13 +5,18 @@
         <title>ISDOC – Národní standard pro elektronickou fakturaci</title>
         <subtitle>Verze @VERSION@ z @DATE@</subtitle>
         <copyright>
+          <year>2022</year>
+          <holder>MVČR</holder>
+        </copyright>
+        <copyright>
             <year>2014</year>
             <holder>ICT UNIE o.s.</holder>
         </copyright>
     </info>
     <para>Přiložený standard a schémata formálně definují výměnný formát daňových dokladů a
-        dalších typů dokumentů definovaný Pracovní skupinou pro elektronické standardy výměny dat sdružení ICT
-        Unie o.s. (<link xlink:href="http://www.isdoc.cz">www.isdoc.cz</link>).</para>
+      dalších typů dokumentů. Formát byl původně definován pracovní skupinou pro elektronické standardy výměny dat
+      <link xlink:href="http://www.ictu.cz/">ICT Unie o.s.</link>. Nyní se o další rozvoj a údržbu
+      formátu stará Ministerstvo vnitra České Republiky.</para>
     <para>Dotazy posílejte na <email>info@isdoc.cz</email>.</para>
     <section>
         <title>Obsah distribuce</title>

@@ -5,14 +5,18 @@
         <title>ISDOC – Czech national standard for e-invoicing</title>
         <subtitle>Version @VERSION@ from @DATE@</subtitle>
         <copyright>
+          <year>2022</year>
+          <holder>MVČR</holder>
+        </copyright>
+        <copyright>
             <year>2014</year>
             <holder>ICT UNIE o.s.</holder>
         </copyright>
     </info>
     <para>Attached schemas and standard formally define exchange format for invoices and other types of documents. The
-        format was created and it is further maintained by Working Group for Electronic Data
+        format was originally created by Working Group for Electronic Data
         Interchange Standards of ICT Unie o.s. (<link xlink:href="http://www.isdoc.cz"
-            >www.isdoc.cz</link>).</para>
+          >www.isdoc.cz</link>). As of now future development and maintenance is done by Ministry of the Interior.</para>
     <para>Inquires can be sent to <email>info@isdoc.cz</email>.</para>
     <section>
         <title>Content of distribution</title>
