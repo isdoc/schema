@@ -67,8 +67,6 @@
           </tbody>
         </tgroup>
       </informaltable>
-      <remark>Červený text na žlutém pozadí vyznačuje poznámky editora, které nebudou součástí
-        finální verze standardu.</remark>
     </section>
   </section>
   <section xml:id="shoda">
@@ -167,8 +165,6 @@
       <para>ISDOC.PDF dokument musí splňovat všechny požadavky formátu PDF/A-3a, tak jak je definuje
           <xref linkend="bib.iso19005-3"/>, a navíc musí dodržet všechny následující
         požadavky:</para>
-      <remark>Není požadavek na PDF/A-3a moc striktní, nestačilo by PDF/A-3u, aby to bylo snazší pro
-        implementátory?</remark>
       <orderedlist>
         <listitem>
           <para>Do ISDOC.PDF dokumentu je vložen dokument ISDOC využívající XML reprezentaci (<xref
@@ -179,8 +175,8 @@
           <para>Pokud je příjemcem dokumentu veřejná správa, je do ISDOC.PDF dokumentu vložen soubor
             pojmenovaný <filename>metadata-invoice-nsessl.xml</filename>, který obsahuje metadata
             nezbytná pro automatický příjem dokumentu do elektronické spisové služby. Obsah souboru
-            s metadaty musí splňovat požadavky definované v [<remark>Asi bude praktické mít formát
-              metadat popsaný v samostatném standardu MVČR.</remark>].</para>
+            s metadaty musí splňovat požadavky definované v Národním standardu (§ 70, odst. 2 zákona
+            č. 499/2004 Sb.).</para>
         </listitem>
         <listitem>
           <para>Dokument ISDOC.PDF může obsahovat další vložené dokumenty a soubory.</para>
@@ -261,7 +257,8 @@
                 <entry><code>/EF</code></entry>
                 <entry>Slovník, který obsahuje položky <code>F</code> a <code>UF</code>, které
                   obsahují vložený souborový proud (viz <xref linkend="bib.iso32000-1"/>, sekce
-                  7.11.4). Slovník souborového proudu musí povinně obsahovat položky uvedené v tabulce <xref linkend="tab.embededfile-required"/>.</entry>
+                  7.11.4). Slovník souborového proudu musí povinně obsahovat položky uvedené
+                  v tabulce <xref linkend="tab.embededfile-required"/>.</entry>
               </row>
             </tbody>
           </tgroup>
