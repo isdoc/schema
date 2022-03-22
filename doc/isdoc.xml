@@ -30,7 +30,9 @@
       ISDOC. Formát byl původně definován pracovní skupinou pro elektronické standardy výměny dat
         <link xlink:href="http://www.ictu.cz/">ICT Unie o.s.</link>. Nyní se o další rozvoj a údržbu
       formátu stará Ministerstvo vnitra České Republiky. Veškeré připomínky a dotazy k formátu a
-      jeho specifikaci zasílejte na adresu <email>info@isdoc.cz</email>.</para>
+      jeho specifikaci zasílejte na adresu <email>isdoc@mvcr.cz</email>.
+      Pokud si myslíte, že je ve specifikaci formátu chyba, 
+      prosím nahlaste pomocí <link xlink:href="https://github.com/isdoc/schema/issues"/>.</para>
     <para>V současné verzi ISDOC definuje formát pro fakturu a neplatební dokument, v dalších
       verzích může být přidána podpora pro další formáty.</para>
     <section xml:id="konvence">
