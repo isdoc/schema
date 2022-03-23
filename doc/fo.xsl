@@ -348,9 +348,11 @@ article toc
 </xsl:template>
 
 <xsl:template match="d:remark">
-  <fo:block color="red" background-color="yellow">
-    <xsl:apply-imports/>
-  </fo:block>
+  <xsl:if test="$show.comments != '0'">
+    <fo:block color="red" background-color="yellow">
+      <xsl:apply-imports/>
+    </fo:block>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>

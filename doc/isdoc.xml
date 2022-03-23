@@ -18,12 +18,12 @@
       <holder>ICT UNIE o.s.</holder>
     </copyright>
     <pubdate><?dbtimestamp padding="0"?></pubdate>
-    <releaseinfo><remark>Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit
-      a být nahrazen novější verzí. Informace o aktuální verzi standardu ISDOC naleznete na adrese
-      <link xlink:href="http://isdoc.cz"/>.</remark></releaseinfo>
-    <releaseinfo><remark>Jakékoliv připomínky a chyby prosím nahlaste pomocí
-      <link xlink:href="https://github.com/isdoc/schema/issues"/>.</remark></releaseinfo>
   </info>  
+  <remark>Tento dokument byl v době svého publikování ve fázi návrhu. Kdykoliv se může změnit
+    a být nahrazen novější verzí. Informace o aktuální verzi standardu ISDOC naleznete na adrese
+    <link xlink:href="http://isdoc.cz"/>.</remark>
+  <remark>Jakékoliv připomínky a chyby prosím nahlaste pomocí
+    <link xlink:href="https://github.com/isdoc/schema/issues"/>.</remark>  
   <section xml:id="uvod">
     <title>Úvod</title>
     <para>Tento dokument definuje formáty pro elektronickou fakturaci souhrnně označované zkratkou
@@ -32,7 +32,7 @@
       formátu stará Ministerstvo vnitra České Republiky. Veškeré připomínky a dotazy k formátu a
       jeho specifikaci zasílejte na adresu <email>isdoc@mvcr.cz</email>.
       Pokud si myslíte, že je ve specifikaci formátu chyba, 
-      prosím nahlaste pomocí <link xlink:href="https://github.com/isdoc/schema/issues"/>.</para>
+      nahlaste ji pomocí <link xlink:href="https://github.com/isdoc/schema/issues"/>.</para>
     <para>V současné verzi ISDOC definuje formát pro fakturu a neplatební dokument, v dalších
       verzích může být přidána podpora pro další formáty.</para>
     <section xml:id="konvence">

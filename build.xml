@@ -130,12 +130,12 @@
   
   <target name="doc" depends="augment">
     
-    <exec executable="C:\Program Files\Oxygen XML Editor 22\schemaDocumentation.bat">
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
       <arg value="temp/en/isdoc-${doctype}-${VERSION}.xsd"/>
       <arg value="-cfg:schemadoc-en.xml"/>
     </exec>
     
-    <exec executable="C:\Program Files\Oxygen XML Editor 22\schemaDocumentation.bat">
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
       <arg value="temp/cs/isdoc-${doctype}-${VERSION}.xsd"/>
       <arg value="-cfg:schemadoc-cs.xml"/>
     </exec>
