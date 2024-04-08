@@ -532,7 +532,7 @@
               test="count(distinct-values(isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity/@unitCode)) le 1"/>
             <sch:assert
               test="if (isdoc:InvoicedQuantity/@unitCode) then
-                                every $q in isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity) satisfies $q/@unitCode = isdoc:InvoicedQuantity/@unitCode
+                                every $q in isdoc:Item/isdoc:StoreBatches/isdoc:StoreBatch/isdoc:Quantity satisfies $q/@unitCode = isdoc:InvoicedQuantity/@unitCode
                               else true()"
             />
           </sch:rule>
