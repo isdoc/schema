@@ -512,7 +512,7 @@
           <title>Nedaňový doklad nesmí obsahovat řádkové položky podléhající DPH</title>
           <sch:rule context="isdoc:Invoice[isdoc:VATApplicable = 'false']">
             <sch:assert
-              test="every $va in isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:ClassifiedTaxCategory/isdoc:VATApplicable satisfied $va = 'false'"
+              test="every $va in isdoc:InvoiceLines/isdoc:InvoiceLine/isdoc:ClassifiedTaxCategory/isdoc:VATApplicable satisfies $va = 'false'"
             />
           </sch:rule>
         </info>
